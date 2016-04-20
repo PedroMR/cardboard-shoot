@@ -1,0 +1,41 @@
+# =============== #
+# Unity generated #
+# =============== #
+TrexClient/Temp/
+TrexClient/Obj/
+TrexClient/obj/
+TrexClient/UnityGenerated/
+TrexClient/Library/
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ ExportedObj/
+ *.svd
+ *.userprefs
+ *.userprefs.meta
+ TrexClient/*.csproj
+ *.csproj.test-cache
+ *.pidb
+ *.suo
+ TrexClient/*.sln
+ *.user
+ *.unityproj
+ *.booproj
+  
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.*.sw?
+
+
+Library
+Temp
+
