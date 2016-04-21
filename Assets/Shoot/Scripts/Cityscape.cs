@@ -4,6 +4,8 @@ using System.Collections;
 public class Cityscape : MonoBehaviour {
 	public GameObject BuildingPrefab;
 	public Renderer renderer;
+	public GameObject container;
+	public GameObject avoid;
 
 	public int Rows = 40;
 	public int Cols = 40;
@@ -14,14 +16,17 @@ public class Cityscape : MonoBehaviour {
 
 	public void CreateCity() {
 		var destroyed = 0;
-		for (var i = transform.childCount-1; i>0; i--) {
-			var b = transform.GetChild(i);
+		if (container == null)
+			container = gameObject;
+		
+		for (var i = container.transform.childCount-1; i>0; i--) {
+			var b = container.transform.GetChild(i);
 			Util.DestroyASAP(b.gameObject);
 			destroyed++;
 		}
 
 		if (BuildingPrefab != null) {
-			var renderer = gameObject.GetComponent<Renderer>();
+			var renderer = container.GetComponent<Renderer>();
 
 			if (renderer != null) {
 				var bounds = renderer.bounds;
@@ -31,7 +36,7 @@ public class Cityscape : MonoBehaviour {
 				var x0 = bounds.min.x + dx/2;
 				var z0 = bounds.min.z + dz/2;
 				var z = z0;
-				var pos = transform.position;
+				var pos = container.transform.position;
 
 				for (var i=0; i < Rows; i++, z+=dz) {
 					pos.z = z;
@@ -41,9 +46,17 @@ public class Cityscape : MonoBehaviour {
 
 						if (Vector3.Distance(pos, bounds.center) < DeadZoneRadius)
 							continue;
-						
+
+//						if (avoid != null) 
+						{
+//							foreach (var t in avoid.GetComponentsInChildren<Transform>()) {
+							if (Physics.CheckSphere(pos, DeadZoneRadius))
+								continue;
+//							}
+						}
+
 						var newBuilding = (GameObject)GameObject.Instantiate(BuildingPrefab, pos, Quaternion.identity);
-						newBuilding.transform.parent = transform;
+						newBuilding.transform.parent = container.transform;
 						var scale = newBuilding.transform.localScale;
 						scale.y *= Random.Range(MinHeight, MaxHeight);
 						newBuilding.transform.localScale = scale;
@@ -51,11 +64,16 @@ public class Cityscape : MonoBehaviour {
 						var lp = newBuilding.transform.localPosition;
 						lp.y -= r.bounds.min.y;
 						newBuilding.transform.localPosition = lp;
+
 					}
 				}
 
 			}
 		}
+	}
+
+	void Awake() {
+		container = this.gameObject;
 	}
 
 	// Use this for initialization

@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour {
 
 	private float timeSinceSpawn;
 	public float TimeToSpawnEnemy = 8.0f;
+	public float EnemySpawnDistance = 40f;
+	public float EnemyMinElevation = 15f;
+	public float EnemyMaxElevation = 65f;
 
 	// Use this for initialization
 	void Start () {
@@ -47,8 +50,10 @@ public class GameController : MonoBehaviour {
 		else
 			Time.timeScale = 1;
 
-		PlayerTurretHead.transform.rotation = MainCamera.transform.rotation;
-		PlayerTurretHead.transform.Rotate (0, -90, 0);
+		if (PlayerTurretHead != null) {
+			PlayerTurretHead.transform.rotation = MainCamera.transform.rotation;
+			PlayerTurretHead.transform.Rotate(0, -90, 0);
+		}
 	}
 
 	void SpawnEnemy ()
@@ -56,12 +61,24 @@ public class GameController : MonoBehaviour {
 		var src = Enemy;
 		var obj = GameObject.Instantiate (src);
 		hud.TrackObject (obj.GetComponent<Targetable> ());
-		var path = WaypointManager.Paths ["att3"];
-		var splineMove = obj.AddComponent<splineMove> ();
-		splineMove.speed = 8;
-		splineMove.SetPath (path);
-		splineMove.pathMode = DG.Tweening.PathMode.Full3D;
-		splineMove.lookAhead = 0.3f;
-		splineMove.StartMove ();
+
+		var pos = Vector3.zero;
+		var polar = Random.value * Mathf.PI * 2;
+		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
+		Util.SphericalToCartesian(EnemySpawnDistance, polar, elevation, out pos);
+		obj.transform.position = pos;
+		obj.transform.LookAt(Vector3.zero);
+		/*
+		var pathId = "att3";
+		if (WaypointManager.Paths.ContainsKey(pathId)) {
+			var path = WaypointManager.Paths [pathId];
+			var splineMove = obj.AddComponent<splineMove> ();
+			splineMove.speed = 8;
+			splineMove.SetPath (path);
+			splineMove.pathMode = DG.Tweening.PathMode.Full3D;
+			splineMove.lookAhead = 0.3f;
+			splineMove.StartMove ();
+		}
+		*/
 	}
 }

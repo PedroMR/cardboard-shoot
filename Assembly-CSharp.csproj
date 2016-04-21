@@ -79,7 +79,6 @@
      <Compile Include="Assets\SWS\Scripts\Manager\WaypointManager.cs" />
      <Compile Include="Assets\SWS\Scripts\Movement\navMove.cs" />
      <Compile Include="Assets\SWS\Scripts\Movement\splineMove.cs" />
-     <Compile Include="Assets\Shoot\CityScape.cs" />
      <Compile Include="Assets\Shoot\Scripts\Cityscape.cs" />
      <Compile Include="Assets\Shoot\Scripts\Config.cs" />
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />
@@ -89,11 +88,13 @@
      <Compile Include="Assets\Shoot\Scripts\Util.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\SWS\README.txt" />
+     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween43.xml" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween46.xml" />
      <None Include="Assets\SWS\Extensions\DOTween\readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\SWS\Changelog.txt" />
      <None Include="Assets\Cardboard\Resources\UI\CardboardReticleShader.shader" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
@@ -116,6 +117,10 @@
  <Reference Include="DOTween50">
  <HintPath>/Users/pedro/Code/Personal/Cardboard/Assets/SWS/Extensions/DOTween/DOTween50.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{28E9C44B-3753-BC69-171B-B32C774FB09C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
