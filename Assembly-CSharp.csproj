@@ -79,8 +79,10 @@
      <Compile Include="Assets\SWS\Scripts\Manager\WaypointManager.cs" />
      <Compile Include="Assets\SWS\Scripts\Movement\navMove.cs" />
      <Compile Include="Assets\SWS\Scripts\Movement\splineMove.cs" />
+     <Compile Include="Assets\Shoot\Scripts\CityTarget.cs" />
      <Compile Include="Assets\Shoot\Scripts\Cityscape.cs" />
      <Compile Include="Assets\Shoot\Scripts\Config.cs" />
+     <Compile Include="Assets\Shoot\Scripts\Enemy.cs" />
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />
      <Compile Include="Assets\Shoot\Scripts\LockProgressUI.cs" />
      <Compile Include="Assets\Shoot\Scripts\Targetable.cs" />

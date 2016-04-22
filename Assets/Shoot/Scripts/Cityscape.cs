@@ -44,16 +44,11 @@ public class Cityscape : MonoBehaviour {
 					for (var j = 0; j < Cols; j++, x += dx) {
 						pos.x = x;
 
-						if (Vector3.Distance(pos, bounds.center) < DeadZoneRadius)
+//						if (Vector3.Distance(pos, bounds.center) < DeadZoneRadius)
+//							continue;
+						
+						if (Physics.CheckSphere(pos, DeadZoneRadius))
 							continue;
-
-//						if (avoid != null) 
-						{
-//							foreach (var t in avoid.GetComponentsInChildren<Transform>()) {
-							if (Physics.CheckSphere(pos, DeadZoneRadius))
-								continue;
-//							}
-						}
 
 						var newBuilding = (GameObject)GameObject.Instantiate(BuildingPrefab, pos, Quaternion.identity);
 						newBuilding.transform.parent = container.transform;

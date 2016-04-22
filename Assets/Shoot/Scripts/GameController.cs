@@ -10,12 +10,20 @@ public class GameController : MonoBehaviour {
 	public GameObject PlayerTurretSpawn;
 	public GameObject MainCamera;
 	public GameObject PlayerTurretHead;
+	public GameObject City;
 
 	private float timeSinceSpawn;
 	public float TimeToSpawnEnemy = 8.0f;
 	public float EnemySpawnDistance = 40f;
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 65f;
+
+	public static GameController Instance;
+
+	public GameController()
+	{
+		Instance = this;
+	}
 
 	// Use this for initialization
 	void Start () {
