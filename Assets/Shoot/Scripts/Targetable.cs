@@ -9,18 +9,40 @@ public class Targetable : MonoBehaviour {
 	float angle = 0f;
 
 	public float lockProgress = 0f;
-	const float LOCK_PER_SECOND = 0.25f;
+	const float LOCK_PER_SECOND = 0.5f;
+
+	public delegate void Callback(Targetable target);
+	public delegate void ProgressCallback(Targetable target, float currentLock, float prevLock);
+	public Callback WasDestroyed;
+	public Callback WasLockedOn;
+	public ProgressCallback OnLockProgress;
 
 	// Use this for initialization
 	void Start () {
-	
+	}
+
+	void OnDestroy() {
+		if (WasDestroyed != null)
+			WasDestroyed(this);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (gazedAt) {
+			var prevLock = lockProgress;
+
 			lockProgress += LOCK_PER_SECOND * Time.deltaTime;
 			lockProgress = Mathf.Clamp01(lockProgress);
+
+			if (OnLockProgress != null) {
+				OnLockProgress(this, lockProgress, prevLock);
+			}
+
+			if (lockProgress >= 1.0f && prevLock < 1.0f) {
+				if (WasLockedOn != null) {
+					WasLockedOn(this);
+				}
+			}
 		}
 
 

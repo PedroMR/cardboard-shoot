@@ -23,6 +23,7 @@ public class TargetingHUD : MonoBehaviour {
 	
 		foreach (var target in removalQueue) {
 			targets.Remove(target);
+			targetUIs.Remove(target);
 		}
 		removalQueue.Clear();
 	}
@@ -49,8 +50,25 @@ public class TargetingHUD : MonoBehaviour {
 		{
 			Destroy (target.gameObject, 0.5f);
 			Destroy (ui.gameObject, 0.5f);
-			removalQueue.Add(target);
+//			removalQueue.Add(target);
 		}
+	}
+
+	public void OnLockProgress(Targetable target, float currentLock, float prevLock) 
+	{
+		float beepsPerLock = 5;
+
+		if (prevLock < 1.0f) {
+			if (((int)(prevLock * beepsPerLock)) != (int)(currentLock*beepsPerLock) || prevLock == 0) {
+				var ui = targetUIs [target];
+				if (ui != null) {
+					var audio = ui.GetComponent<CardboardAudioSource>();
+					if (audio != null)
+						audio.Play();
+				}
+			}
+		}
+
 	}
 
 	public void TrackObject(Targetable target) {
@@ -60,11 +78,20 @@ public class TargetingHUD : MonoBehaviour {
 		}
 
 		targets.Add (target);
+		target.WasDestroyed += TargetDestroyed;
+		target.OnLockProgress += OnLockProgress;
 
 		var obj = GameObject.Instantiate(TargetingUI);
 
 		targetUIs.Add (target, obj);
 
 		UpdatePosition (target);
+	}
+
+	public void TargetDestroyed(Targetable target) {
+		var ui = targetUIs [target];
+		Destroy(ui.gameObject);
+		targets.Remove(target);
+		targetUIs.Remove(target);
 	}
 }

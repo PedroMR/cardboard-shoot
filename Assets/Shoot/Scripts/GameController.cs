@@ -14,9 +14,9 @@ public class GameController : MonoBehaviour {
 
 	private float timeSinceSpawn;
 	public float TimeToSpawnEnemy = 8.0f;
-	public float EnemySpawnDistance = 40f;
+	public float EnemySpawnDistance = 60f;
 	public float EnemyMinElevation = 15f;
-	public float EnemyMaxElevation = 65f;
+	public float EnemyMaxElevation = 45f;
 
 	public static GameController Instance;
 
