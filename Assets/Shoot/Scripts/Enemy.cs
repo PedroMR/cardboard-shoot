@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour
 //			.SetLoops(-1, LoopType.Yoyo)
 			.SetAutoKill()
 			.OnComplete(OnPathComplete)
+			.OnWaypointChange(OnWaypointChanged)
 			;
 
 //		transform.DOMove(targetPos, 10.0f).SetLoops(3, LoopType.Yoyo).SetAutoKill();
@@ -73,6 +74,13 @@ public class Enemy : MonoBehaviour
 	public void OnPathComplete()
 	{
 		Destroy(gameObject);
+	}
+
+	public void OnWaypointChanged(int waypoint)
+	{
+		if (waypoint == 1) {
+			myTarget.Health -= 5;
+		}
 	}
 }
 

@@ -8,7 +8,6 @@ public class TargetingHUD : MonoBehaviour {
 
 	ICollection<Targetable> targets = new HashSet<Targetable>();
 	Dictionary<Targetable, GameObject> targetUIs = new Dictionary<Targetable, GameObject>();
-	List<Targetable> removalQueue = new List<Targetable>();
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +19,6 @@ public class TargetingHUD : MonoBehaviour {
 		foreach (var target in targets) {
 			UpdatePosition(target);
 		}
-	
-		foreach (var target in removalQueue) {
-			targets.Remove(target);
-			targetUIs.Remove(target);
-		}
-		removalQueue.Clear();
 	}
 
 	void UpdatePosition (Targetable target)
@@ -50,7 +43,6 @@ public class TargetingHUD : MonoBehaviour {
 		{
 			Destroy (target.gameObject, 0.5f);
 			Destroy (ui.gameObject, 0.5f);
-//			removalQueue.Add(target);
 		}
 	}
 
