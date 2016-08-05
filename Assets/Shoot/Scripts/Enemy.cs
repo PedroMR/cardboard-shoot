@@ -6,8 +6,15 @@ public class Enemy : MonoBehaviour
 {
 	static float PATH_DURATION = 22.0f;
 	static float PATH_SPEED = 3f;
+	public float AudioPitchAtStart = 1.0f;
+	public float AudioPitchAtTarget = 3.0f;
+	public float AudioPitchAfterTarget = 0.8f;
+
 
 	CityTarget myTarget;
+	CardboardAudioSource audioSource;
+	float initialDistance;
+	bool fired = false;
 
 	public Enemy()
 	{
@@ -31,11 +38,16 @@ public class Enemy : MonoBehaviour
 			}
 		}
 
+		initialDistance = closestRange;
 		return closest;
 	}
 
 	public void Start()
 	{
+		audioSource = GetComponent<CardboardAudioSource>();
+		if (audioSource != null)
+			audioSource.pitch = 1;
+
 		myTarget = FindTarget();
 		var targetPos = Vector3.zero;
 
@@ -83,7 +95,19 @@ public class Enemy : MonoBehaviour
 	public void OnWaypointChanged(int waypoint)
 	{
 		if (waypoint == 1) {
+			fired = true;
 			myTarget.Health -= 5;
+			if (audioSource != null)
+				audioSource.pitch = AudioPitchAfterTarget;
+		}
+	}
+
+	public void Update()
+	{
+		if (audioSource != null && !fired) {
+			var distance = Vector3.Distance(myTarget.transform.position, this.transform.position);
+			var pitch = Mathf.Lerp(AudioPitchAtTarget, AudioPitchAtStart, distance / initialDistance);
+			audioSource.pitch = pitch;
 		}
 	}
 }
