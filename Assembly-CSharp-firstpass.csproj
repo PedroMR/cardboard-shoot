@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{28E9C44B-3753-BC69-171B-B32C774FB09C}</ProjectGuid>
+    <ProjectGuid>{109B7EFD-F718-BC27-CD3C-4E5CE794C1E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -70,16 +70,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/pedro/Code/Personal/Cardboard/Assets/SWS/Extensions/DOTween/DOTween.dll</HintPath>
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>/Users/pedro/Code/Personal/Cardboard/Assets/SWS/Extensions/DOTween/DOTween43.dll</HintPath>
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>/Users/pedro/Code/Personal/Cardboard/Assets/SWS/Extensions/DOTween/DOTween46.dll</HintPath>
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>/Users/pedro/Code/Personal/Cardboard/Assets/SWS/Extensions/DOTween/DOTween50.dll</HintPath>
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween50.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,6 +4,9 @@ using SWS;
 
 public class Enemy : MonoBehaviour
 {
+	static float PATH_DURATION = 22.0f;
+	static float PATH_SPEED = 3f;
+
 	CityTarget myTarget;
 
 	public Enemy()
@@ -56,8 +59,9 @@ public class Enemy : MonoBehaviour
 		waypoints[2] = r;
 
 		transform.LookAt(targetPos);
-		transform.DOPath(waypoints, 14.0f, PathType.CatmullRom, PathMode.Full3D, 10, Color.magenta)
+		transform.DOPath(waypoints, PATH_SPEED, PathType.CatmullRom, PathMode.Full3D, 10, Color.magenta)
 			.SetLookAt(0f)
+			.SetSpeedBased()
 			.SetEase(Ease.InQuad)
 //			.SetLoops(-1, LoopType.Yoyo)
 			.SetAutoKill()

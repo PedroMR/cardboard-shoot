@@ -9,7 +9,7 @@ public class Targetable : MonoBehaviour {
 	float angle = 0f;
 
 	public float lockProgress = 0f;
-	const float LOCK_PER_SECOND = 0.5f;
+	const float LOCK_PER_SECOND = 1f;
 
 	public delegate void Callback(Targetable target);
 	public delegate void ProgressCallback(Targetable target, float currentLock, float prevLock);

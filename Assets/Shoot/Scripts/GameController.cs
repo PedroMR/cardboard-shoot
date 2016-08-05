@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour {
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
 
+	public float WAVE_ENEMY_SEPARATION = 10f;
+
+	public int WAVE_MIN_ENEMIES = 2, WAVE_MAX_ENEMIES = 3;
+
 	public static GameController Instance;
 
 	public GameController()
@@ -35,11 +39,11 @@ public class GameController : MonoBehaviour {
 		timeSinceSpawn += Time.deltaTime;
 		if (timeSinceSpawn > TimeToSpawnEnemy) {
 			timeSinceSpawn = 0;
-			SpawnEnemy();
+			SpawnEnemyWave();
 		}
 	
 		if (Input.GetKeyDown (KeyCode.J)) {
-			SpawnEnemy();
+			SpawnEnemyWave();
 		}
 
 		if (Input.GetKeyDown (KeyCode.R)) {
@@ -64,18 +68,25 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void SpawnEnemy ()
+	void SpawnEnemyWave ()
 	{
-		var src = Enemy;
-		var obj = GameObject.Instantiate (src);
-		hud.TrackObject (obj.GetComponent<Targetable> ());
-
-		var pos = Vector3.zero;
+		var waveCenter = Vector3.zero;
 		var polar = Random.value * Mathf.PI * 2;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
-		Util.SphericalToCartesian(EnemySpawnDistance, polar, elevation, out pos);
-		obj.transform.position = pos;
-		obj.transform.LookAt(Vector3.zero);
+		Util.SphericalToCartesian(EnemySpawnDistance, polar, elevation, out waveCenter);
+
+		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
+		var src = Enemy;
+		for (var i=0; i < enemiesInWave; i++) {
+			var obj = GameObject.Instantiate (src);
+			hud.TrackObject (obj.GetComponent<Targetable> ());
+			
+			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
+			var pos = waveCenter + delta;
+			obj.transform.position = pos;
+			obj.transform.LookAt(Vector3.zero);
+		}
+
 		/*
 		var pathId = "att3";
 		if (WaypointManager.Paths.ContainsKey(pathId)) {
@@ -87,6 +98,6 @@ public class GameController : MonoBehaviour {
 			splineMove.lookAhead = 0.3f;
 			splineMove.StartMove ();
 		}
-		*/
+		/**/
 	}
 }
