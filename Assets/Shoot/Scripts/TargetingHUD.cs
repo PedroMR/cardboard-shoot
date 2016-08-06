@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TargetingHUD : MonoBehaviour {
 	public GameObject TargetingUI;
-	public float DistanceToElements = 0.5f;
+	public float DistanceToElements = 2f;
 
 	ICollection<Targetable> targets = new HashSet<Targetable>();
 	Dictionary<Targetable, GameObject> targetUIs = new Dictionary<Targetable, GameObject>();
@@ -27,11 +27,14 @@ public class TargetingHUD : MonoBehaviour {
 		var ui = targetUIs [target];
 
 		var delta = target.transform.position - center;
+		var distance = delta.magnitude;
 		delta.Normalize();
 		delta *= DistanceToElements;
+//		ui.transform.position = center + delta;
+		ui.transform.position = target.transform.position - delta;
+		ui.transform.localScale = Vector3.one * (distance * 0.5f / 62.32f);
 
-		ui.transform.position = center + delta;
-		ui.transform.LookAt (center+target.transform.position);
+		ui.transform.LookAt (2*(center+target.transform.position));
 
 		var lockProgressUI = ui.gameObject.GetComponent<LockProgressUI> ();
 		if (lockProgressUI != null)
