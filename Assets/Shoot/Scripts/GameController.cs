@@ -85,19 +85,39 @@ public class GameController : MonoBehaviour {
 			var pos = waveCenter + delta;
 			obj.transform.position = pos;
 			obj.transform.LookAt(Vector3.zero);
+
+			var targetable = obj.GetComponent<Targetable>();
+			targetable.WasLockedOn += OnLockedEnemy;
+		}
+	}
+
+	public void OnLockedEnemy(Targetable target) {
+//		GameObject.Destroy(target.gameObject);
+		var shooter = FindShooterClosestToEnemy(target);
+		SpawnMissile(shooter, target);
+	}
+
+	CityShooter FindShooterClosestToEnemy(Targetable target) {
+		var shooters = City.GetComponentsInChildren<CityShooter>();
+		CityShooter closest = null;
+		var distance = 0f;
+		var targetPos = target.transform.position;
+
+		foreach (var shooter in shooters) {
+			var newDistance = (shooter.transform.position - targetPos).sqrMagnitude;
+			if (newDistance < distance || closest == null) {
+				closest = shooter;
+				distance = newDistance;
+			}
 		}
 
-		/*
-		var pathId = "att3";
-		if (WaypointManager.Paths.ContainsKey(pathId)) {
-			var path = WaypointManager.Paths [pathId];
-			var splineMove = obj.AddComponent<splineMove> ();
-			splineMove.speed = 8;
-			splineMove.SetPath (path);
-			splineMove.pathMode = DG.Tweening.PathMode.Full3D;
-			splineMove.lookAhead = 0.3f;
-			splineMove.StartMove ();
-		}
-		/**/
+		return closest;
+	}
+
+	Missile SpawnMissile(CityShooter shooter, Targetable target) {
+		var obj = (GameObject)GameObject.Instantiate(RocketPrefab, shooter.transform.position, Quaternion.identity);
+		var missile = obj.GetComponent<Missile>();
+		missile.Target = target;
+		return missile;
 	}
 }

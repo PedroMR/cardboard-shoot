@@ -44,8 +44,7 @@ public class TargetingHUD : MonoBehaviour {
 
 		if (target.lockProgress >= 1.0f)
 		{
-			Destroy (target.gameObject, 0.5f);
-			Destroy (ui.gameObject, 0.5f);
+			ui.gameObject.SetActive(false);//TODO special blinking effect, remove collider
 		}
 	}
 
