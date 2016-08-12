@@ -8,6 +8,8 @@ public class Missile : MonoBehaviour
 	public float Acceleration = 8f;
 	private float speed = 0;
 	public float TRIGGER_DISTANCE_SQ = 2 * 2;
+	public GameObject ExplosionEffect;
+	private bool ReachedTarget = false;
 
 	public int Damage = 5;
 
@@ -39,6 +41,9 @@ public class Missile : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (ReachedTarget)
+			return;
+		
 		var targetPos = Target ? Target.transform.position : FlyingToPosition;
 		transform.LookAt(targetPos);
 		speed = Mathf.Min(speed + Acceleration * Time.deltaTime, MaxSpeed);
@@ -46,11 +51,15 @@ public class Missile : MonoBehaviour
 
 		var deltaToTarget = targetPos - transform.position;
 		if (deltaToTarget.sqrMagnitude < TRIGGER_DISTANCE_SQ) {
+			ReachedTarget = true;
+
+			var explosion = GameObject.Instantiate(ExplosionEffect, transform.position, transform.rotation);
 			Destroy(this.gameObject);
+
 			if (Target != null) {
 				Target.Health -= Damage;
-				if (Target.Health <= 0)
-					Destroy(Target.gameObject); //TODO damage amounts
+				if (Target.Health <= 0) //FIXME this should be done by the damage sufferer
+					Destroy(Target.gameObject);
 			}
 		}				
 	}

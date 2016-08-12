@@ -100,7 +100,6 @@ public class Enemy : MonoBehaviour
 	{
 		if (waypoint == 1) {
 			LaunchAttackAgainstTarget();
-			myTarget.Health -= 5;
 			if (audioSource != null)
 				audioSource.pitch = AudioPitchAfterTarget;
 		}
