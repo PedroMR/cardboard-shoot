@@ -9,6 +9,8 @@ public class Missile : MonoBehaviour
 	private float speed = 0;
 	public float TRIGGER_DISTANCE_SQ = 2 * 2;
 
+	public int Damage = 5;
+
 	private WeaponTargetable _target;
 	public WeaponTargetable Target {
 		get { return _target; }
@@ -46,7 +48,9 @@ public class Missile : MonoBehaviour
 		if (deltaToTarget.sqrMagnitude < TRIGGER_DISTANCE_SQ) {
 			Destroy(this.gameObject);
 			if (Target != null) {
-				Destroy(Target.gameObject); //TODO damage amounts
+				Target.Health -= Damage;
+				if (Target.Health <= 0)
+					Destroy(Target.gameObject); //TODO damage amounts
 			}
 		}				
 	}

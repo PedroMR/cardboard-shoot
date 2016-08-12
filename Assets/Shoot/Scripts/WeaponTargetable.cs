@@ -6,6 +6,8 @@ public class WeaponTargetable : MonoBehaviour
 	public delegate void Callback(WeaponTargetable target);
 	public Callback WasDestroyed;
 
+	public int Health = 100;
+
 	// Use this for initialization
 	void Start()
 	{

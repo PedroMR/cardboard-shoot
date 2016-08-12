@@ -107,7 +107,8 @@ public class Enemy : MonoBehaviour
 		fired = true;
 		var shooter = GetComponentInChildren<CityShooter>();
 		if (shooter != null) {
-//			shooter.LaunchAgainstTarget(myTarget); //FIXME
+			var target = myTarget.GetComponentInChildren<WeaponTargetable>();
+			shooter.LaunchAgainstTarget(target); 
 		}
 	}
 
