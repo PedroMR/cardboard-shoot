@@ -60,9 +60,13 @@ public class Enemy : MonoBehaviour
 		Vector3[] waypoints = new Vector3[3];
 
 		waypoints[0] = this.transform.position;
-		waypoints[1] = targetPos;
 
-		var d = waypoints[1] - waypoints[0];
+		var d = targetPos - waypoints[0];
+		var projectedDelta = d.normalized;
+		projectedDelta.y = 0;
+
+		waypoints[1] = targetPos - projectedDelta * 12.0f;
+
 		var n = Vector3.up;
 		var delta = (d - 2 * Vector3.Dot(d, n) * n);
 		delta.x *= 2.0f;
