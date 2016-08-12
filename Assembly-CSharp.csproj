@@ -86,6 +86,7 @@
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />
      <Compile Include="Assets\Shoot\Scripts\HealthWatcher.cs" />
      <Compile Include="Assets\Shoot\Scripts\LockProgressUI.cs" />
+     <Compile Include="Assets\Shoot\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Shoot\Scripts\Targetable.cs" />
      <Compile Include="Assets\Shoot\Scripts\TargetingHUD.cs" />
      <Compile Include="Assets\Shoot\Scripts\Util.cs" />
