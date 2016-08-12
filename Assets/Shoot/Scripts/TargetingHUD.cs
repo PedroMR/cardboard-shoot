@@ -72,8 +72,10 @@ public class TargetingHUD : MonoBehaviour {
 		}
 
 		targets.Add (target);
-		target.WasDestroyed += TargetDestroyed;
 		target.OnLockProgress += OnLockProgress;
+
+		var weaponTarget = target.GetComponent<WeaponTargetable>();
+		weaponTarget.WasDestroyed += TargetDestroyed;
 
 		var obj = GameObject.Instantiate(TargetingUI);
 
@@ -82,7 +84,8 @@ public class TargetingHUD : MonoBehaviour {
 		UpdatePosition (target);
 	}
 
-	public void TargetDestroyed(PlayerTargetable target) {
+	public void TargetDestroyed(WeaponTargetable weaponTarget) {
+		var target = weaponTarget.GetComponent<PlayerTargetable>(); 
 		var ui = targetUIs [target];
 		Destroy(ui.gameObject);
 		targets.Remove(target);

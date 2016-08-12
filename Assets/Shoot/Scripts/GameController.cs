@@ -93,7 +93,8 @@ public class GameController : MonoBehaviour {
 
 	public void OnLockedEnemy(PlayerTargetable target) {
 		var shooter = FindShooterClosestToEnemy(target);
-		shooter.LaunchAgainstTarget(target);
+		var weaponTarget = target.GetComponent<WeaponTargetable>();
+		shooter.LaunchAgainstTarget(weaponTarget);
 	}
 
 	CityShooter FindShooterClosestToEnemy(PlayerTargetable target) {

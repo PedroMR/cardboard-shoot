@@ -2,18 +2,16 @@
 using System.Collections;
 
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider))][RequireComponent(typeof(WeaponTargetable))]
 public class PlayerTargetable : MonoBehaviour {
 	bool gazedAt;
 	public float RotationSpeed = 0.5f;
-	float angle = 0f;
 
 	public float lockProgress = 0f;
 	const float LOCK_PER_SECOND = 1f;
 
 	public delegate void Callback(PlayerTargetable target);
 	public delegate void ProgressCallback(PlayerTargetable target, float currentLock, float prevLock);
-	public Callback WasDestroyed;
 	public Callback WasLockedOn;
 	public ProgressCallback OnLockProgress;
 
@@ -21,11 +19,6 @@ public class PlayerTargetable : MonoBehaviour {
 	void Start () {
 	}
 
-	void OnDestroy() {
-		if (WasDestroyed != null)
-			WasDestroyed(this);
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		if (gazedAt) {
@@ -46,7 +39,7 @@ public class PlayerTargetable : MonoBehaviour {
 		}
 
 
-
+		/**
 		if (false){
 			var oldPos = transform.position;
 			oldPos.y = 0;
@@ -60,6 +53,7 @@ public class PlayerTargetable : MonoBehaviour {
 			transform.LookAt (Vector3.Cross (newPos, Vector3.up) + newPos);
 //			transform.Rotate(Vector3.up, Time.deltaTime*RotationSpeed);
 		}
+		/**/
 	}
 
 	public void SetGazedAt(bool gazedAt) {

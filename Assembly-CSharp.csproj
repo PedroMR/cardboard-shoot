@@ -92,6 +92,7 @@
      <Compile Include="Assets\Shoot\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Shoot\Scripts\TargetingHUD.cs" />
      <Compile Include="Assets\Shoot\Scripts\Util.cs" />
+     <Compile Include="Assets\Shoot\Scripts\WeaponTargetable.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\SWS\README.txt" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />

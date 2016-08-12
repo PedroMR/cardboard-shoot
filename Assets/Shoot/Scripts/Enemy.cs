@@ -4,7 +4,7 @@ using SWS;
 
 public class Enemy : MonoBehaviour
 {
-	static float PATH_DURATION = 22.0f;
+//	static float PATH_DURATION = 22.0f;
 	static float PATH_SPEED = 3f;
 	public float AudioPitchAtStart = 1.0f;
 	public float AudioPitchAtTarget = 3.0f;

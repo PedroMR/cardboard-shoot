@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Cityscape : MonoBehaviour {
 	public GameObject BuildingPrefab;
-	public Renderer renderer;
 	public GameObject container;
 	public GameObject avoid;
 
