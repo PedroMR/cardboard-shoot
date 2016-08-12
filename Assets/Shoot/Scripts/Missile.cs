@@ -3,17 +3,29 @@ using System.Collections;
 
 public class Missile : MonoBehaviour
 {
-	public Targetable Target;
 	public Vector3 FlyingToPosition;
 	public float MaxSpeed = 20.0f;
 	public float Acceleration = 8f;
 	private float speed = 0;
 	public float TRIGGER_DISTANCE_SQ = 2 * 2;
 
+	private Targetable _target;
+	public Targetable Target {
+		get { return _target; }
+		set { 
+			if (_target != null)
+				_target.WasDestroyed -= OnTargetDestroyed;
+			
+			_target = value;  
+
+			if (_target != null)
+				_target.WasDestroyed += OnTargetDestroyed;
+		}
+	}
+
 	// Use this for initialization
 	void Start()
 	{
-		Target.WasDestroyed += OnTargetDestroyed;
 	}
 
 	public void OnTargetDestroyed(Targetable target) 

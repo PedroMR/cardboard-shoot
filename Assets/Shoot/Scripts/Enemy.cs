@@ -95,10 +95,19 @@ public class Enemy : MonoBehaviour
 	public void OnWaypointChanged(int waypoint)
 	{
 		if (waypoint == 1) {
-			fired = true;
+			LaunchAttackAgainstTarget();
 			myTarget.Health -= 5;
 			if (audioSource != null)
 				audioSource.pitch = AudioPitchAfterTarget;
+		}
+	}
+
+	void LaunchAttackAgainstTarget()
+	{
+		fired = true;
+		var shooter = GetComponentInChildren<CityShooter>();
+		if (shooter != null) {
+//			shooter.LaunchAgainstTarget(myTarget); //FIXME
 		}
 	}
 
