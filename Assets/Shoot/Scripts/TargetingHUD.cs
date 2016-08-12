@@ -45,6 +45,10 @@ public class TargetingHUD : MonoBehaviour {
 		if (target.lockProgress >= 1.0f)
 		{
 			ui.gameObject.SetActive(false);//TODO special blinking effect, remove collider
+			var collider = target.GetComponent<Collider>();
+			if (collider != null) {
+				collider.enabled = false;
+			}
 		}
 	}
 
