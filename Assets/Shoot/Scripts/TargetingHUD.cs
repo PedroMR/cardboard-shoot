@@ -6,8 +6,8 @@ public class TargetingHUD : MonoBehaviour {
 	public GameObject TargetingUI;
 	public float DistanceToElements = 2f;
 
-	ICollection<Targetable> targets = new HashSet<Targetable>();
-	Dictionary<Targetable, GameObject> targetUIs = new Dictionary<Targetable, GameObject>();
+	ICollection<PlayerTargetable> targets = new HashSet<PlayerTargetable>();
+	Dictionary<PlayerTargetable, GameObject> targetUIs = new Dictionary<PlayerTargetable, GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,7 @@ public class TargetingHUD : MonoBehaviour {
 		}
 	}
 
-	void UpdatePosition (Targetable target)
+	void UpdatePosition (PlayerTargetable target)
 	{
 		var center = transform.position; 
 		var ui = targetUIs [target];
@@ -48,7 +48,7 @@ public class TargetingHUD : MonoBehaviour {
 		}
 	}
 
-	public void OnLockProgress(Targetable target, float currentLock, float prevLock) 
+	public void OnLockProgress(PlayerTargetable target, float currentLock, float prevLock) 
 	{
 		float beepsPerLock = 5;
 
@@ -65,7 +65,7 @@ public class TargetingHUD : MonoBehaviour {
 
 	}
 
-	public void TrackObject(Targetable target) {
+	public void TrackObject(PlayerTargetable target) {
 		if (targets.Contains (target)) {
 			Debug.LogWarning("Already tracking target "+target);
 			return;
@@ -82,7 +82,7 @@ public class TargetingHUD : MonoBehaviour {
 		UpdatePosition (target);
 	}
 
-	public void TargetDestroyed(Targetable target) {
+	public void TargetDestroyed(PlayerTargetable target) {
 		var ui = targetUIs [target];
 		Destroy(ui.gameObject);
 		targets.Remove(target);

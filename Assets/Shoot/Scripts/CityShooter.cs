@@ -16,7 +16,7 @@ public class CityShooter : MonoBehaviour
 	
 	}
 
-	public Missile LaunchAgainstTarget(Targetable target)
+	public Missile LaunchAgainstTarget(PlayerTargetable target)
 	{
 		var obj = (GameObject)GameObject.Instantiate(RocketPrefab, transform.position, Quaternion.identity);
 

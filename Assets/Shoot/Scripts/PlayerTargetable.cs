@@ -3,7 +3,7 @@ using System.Collections;
 
 
 [RequireComponent(typeof(Collider))]
-public class Targetable : MonoBehaviour {
+public class PlayerTargetable : MonoBehaviour {
 	bool gazedAt;
 	public float RotationSpeed = 0.5f;
 	float angle = 0f;
@@ -11,8 +11,8 @@ public class Targetable : MonoBehaviour {
 	public float lockProgress = 0f;
 	const float LOCK_PER_SECOND = 1f;
 
-	public delegate void Callback(Targetable target);
-	public delegate void ProgressCallback(Targetable target, float currentLock, float prevLock);
+	public delegate void Callback(PlayerTargetable target);
+	public delegate void ProgressCallback(PlayerTargetable target, float currentLock, float prevLock);
 	public Callback WasDestroyed;
 	public Callback WasLockedOn;
 	public ProgressCallback OnLockProgress;

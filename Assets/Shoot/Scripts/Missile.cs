@@ -9,8 +9,8 @@ public class Missile : MonoBehaviour
 	private float speed = 0;
 	public float TRIGGER_DISTANCE_SQ = 2 * 2;
 
-	private Targetable _target;
-	public Targetable Target {
+	private PlayerTargetable _target;
+	public PlayerTargetable Target {
 		get { return _target; }
 		set { 
 			if (_target != null)
@@ -28,7 +28,7 @@ public class Missile : MonoBehaviour
 	{
 	}
 
-	public void OnTargetDestroyed(Targetable target) 
+	public void OnTargetDestroyed(PlayerTargetable target) 
 	{
 		FlyingToPosition = Target.transform.position;
 		Target = null;

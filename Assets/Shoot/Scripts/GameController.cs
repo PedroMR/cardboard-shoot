@@ -79,24 +79,24 @@ public class GameController : MonoBehaviour {
 		var src = Enemy;
 		for (var i=0; i < enemiesInWave; i++) {
 			var obj = GameObject.Instantiate (src);
-			hud.TrackObject (obj.GetComponent<Targetable> ());
+			hud.TrackObject (obj.GetComponent<PlayerTargetable> ());
 			
 			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
 			var pos = waveCenter + delta;
 			obj.transform.position = pos;
 			obj.transform.LookAt(Vector3.zero);
 
-			var targetable = obj.GetComponent<Targetable>();
+			var targetable = obj.GetComponent<PlayerTargetable>();
 			targetable.WasLockedOn += OnLockedEnemy;
 		}
 	}
 
-	public void OnLockedEnemy(Targetable target) {
+	public void OnLockedEnemy(PlayerTargetable target) {
 		var shooter = FindShooterClosestToEnemy(target);
 		shooter.LaunchAgainstTarget(target);
 	}
 
-	CityShooter FindShooterClosestToEnemy(Targetable target) {
+	CityShooter FindShooterClosestToEnemy(PlayerTargetable target) {
 		var shooters = City.GetComponentsInChildren<CityShooter>();
 		CityShooter closest = null;
 		var distance = 0f;
