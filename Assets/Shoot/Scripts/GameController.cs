@@ -92,9 +92,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void OnLockedEnemy(Targetable target) {
-//		GameObject.Destroy(target.gameObject);
 		var shooter = FindShooterClosestToEnemy(target);
-		SpawnMissile(shooter, target);
+		shooter.LaunchAgainstTarget(target);
 	}
 
 	CityShooter FindShooterClosestToEnemy(Targetable target) {
@@ -112,12 +111,5 @@ public class GameController : MonoBehaviour {
 		}
 
 		return closest;
-	}
-
-	Missile SpawnMissile(CityShooter shooter, Targetable target) {
-		var obj = (GameObject)GameObject.Instantiate(RocketPrefab, shooter.transform.position, Quaternion.identity);
-		var missile = obj.GetComponent<Missile>();
-		missile.Target = target;
-		return missile;
 	}
 }
