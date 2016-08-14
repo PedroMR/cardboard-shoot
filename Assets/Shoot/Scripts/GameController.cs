@@ -25,6 +25,10 @@ public class GameController : MonoBehaviour {
 
 	public static GameController Instance;
 
+	public static bool VRMode = false;
+	public static Cardboard.DistortionCorrectionMethod DistortionCorrection = Cardboard.DistortionCorrectionMethod.Unity;
+	public static bool DirectRender = true;
+
 	public GameController()
 	{
 		Instance = this;
@@ -32,9 +36,15 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cardboard.SDK.VRModeEnabled = VRMode;
+		Cardboard.SDK.DistortionCorrection = DistortionCorrection;
+		Cardboard.Controller.directRender = DirectRender;
 	}
 
 	public void ResetGame() {
+		VRMode = Cardboard.SDK.VRModeEnabled;
+		DistortionCorrection = Cardboard.SDK.DistortionCorrection;
+		DirectRender = Cardboard.Controller.directRender;
 		SceneManager.LoadScene("Game");
 	}
 	
@@ -117,5 +127,24 @@ public class GameController : MonoBehaviour {
 		}
 
 		return closest;
+	}
+
+	public void ToggleDistortionCorrection() {
+		switch(Cardboard.SDK.DistortionCorrection) {
+			case Cardboard.DistortionCorrectionMethod.Unity:
+				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.Native;
+				break;
+			case Cardboard.DistortionCorrectionMethod.Native:
+				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.None;
+				break;
+			case Cardboard.DistortionCorrectionMethod.None:
+			default:
+				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.Unity;
+				break;
+		}
+	}
+
+	public void ToggleDirectRender() {
+		Cardboard.Controller.directRender = !Cardboard.Controller.directRender;
 	}
 }
