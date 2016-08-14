@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour {
 	void SpawnEnemyWave ()
 	{
 		var waveCenter = Vector3.zero;
-		var polar = Random.value * Mathf.PI * 2;
+		var polar = Random.value * Mathf.PI - Mathf.PI/2;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
 		Util.SphericalToCartesian(EnemySpawnDistance, polar, elevation, out waveCenter);
 
