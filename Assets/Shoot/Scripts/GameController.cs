@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using DG.Tweening.Core;
@@ -73,6 +74,12 @@ public class GameController : MonoBehaviour {
 			PlayerTurretHead.transform.Rotate(0, -90, 0);
 		}
 	}
+
+//	void OnGUI()
+//	{
+//		var selectedObject = EventSystem.current.currentSelectedGameObject;
+//		GUILayout.Label("Gazing at: "+ (selectedObject ? selectedObject.name : "(null)"));
+//	}
 
 	void SpawnEnemyWave ()
 	{
