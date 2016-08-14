@@ -120,22 +120,4 @@ public class GameController : MonoBehaviour {
 		return closest;
 	}
 
-	public void ToggleDistortionCorrection() {
-		switch(Cardboard.SDK.DistortionCorrection) {
-			case Cardboard.DistortionCorrectionMethod.Unity:
-				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.Native;
-				break;
-			case Cardboard.DistortionCorrectionMethod.Native:
-				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.None;
-				break;
-			case Cardboard.DistortionCorrectionMethod.None:
-			default:
-				Cardboard.SDK.DistortionCorrection = Cardboard.DistortionCorrectionMethod.Unity;
-				break;
-		}
-	}
-
-	public void ToggleDirectRender() {
-		Cardboard.Controller.directRender = !Cardboard.Controller.directRender;
-	}
 }
