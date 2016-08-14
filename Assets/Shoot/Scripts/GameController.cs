@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using DG.Tweening.Core;
 using SWS;
@@ -31,6 +32,10 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+	}
+
+	public void ResetGame() {
+		SceneManager.LoadScene("Game");
 	}
 	
 	// Update is called once per frame
