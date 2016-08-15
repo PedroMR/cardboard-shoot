@@ -24,6 +24,20 @@ public class GameController : MonoBehaviour {
 
 	public int WAVE_MIN_ENEMIES = 2, WAVE_MAX_ENEMIES = 3;
 
+	public delegate void ScoreChange(int newScore);
+	public ScoreChange OnScoreChange;
+
+	private int _score;
+	public int Score {
+		get { return _score; }
+		set { 
+			_score = value; 
+			if (OnScoreChange != null)
+				OnScoreChange(_score); 
+		}
+	}
+
+
 	public static GameController Instance;
 
 	public GameController()
@@ -34,6 +48,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cardboard.SDK.Recenter();
+		Score = 0;
 	}
 
 	public void ResetGame() {

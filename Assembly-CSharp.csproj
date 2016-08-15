@@ -89,6 +89,7 @@
      <Compile Include="Assets\Shoot\Scripts\LockProgressUI.cs" />
      <Compile Include="Assets\Shoot\Scripts\Missile.cs" />
      <Compile Include="Assets\Shoot\Scripts\PlayerTargetable.cs" />
+     <Compile Include="Assets\Shoot\Scripts\ScoreWatcher.cs" />
      <Compile Include="Assets\Shoot\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Shoot\Scripts\TargetingHUD.cs" />
      <Compile Include="Assets\Shoot\Scripts\Util.cs" />
