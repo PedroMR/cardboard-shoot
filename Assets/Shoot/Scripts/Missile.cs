@@ -57,11 +57,7 @@ public class Missile : MonoBehaviour
 			Destroy(this.gameObject);
 
 			if (Target != null) {
-				Target.Health -= Damage;
-				if (Target.Health <= 0) { //FIXME this should be done by the damage sufferer
-					Destroy(Target.gameObject);
-					GameController.Instance.Score += 5;
-				}
+				Target.SufferDamage(Damage);
 			}
 		}				
 	}

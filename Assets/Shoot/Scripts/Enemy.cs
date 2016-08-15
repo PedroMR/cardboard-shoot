@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 	public float AudioPitchAtTarget = 3.0f;
 	public float AudioPitchAfterTarget = 0.8f;
 
+	public int scoreValue = 5;
 
 	CityTarget myTarget;
 	CardboardAudioSource audioSource;
@@ -88,6 +89,10 @@ public class Enemy : MonoBehaviour
 //		transform.DOMove(targetPos, 10.0f).SetLoops(3, LoopType.Yoyo).SetAutoKill();
 //		transform.DOMove(targetPos, 1.0f).SetSpeedBased().SetEase(Ease.Linear).SetLoops(3, LoopType.Yoyo).SetAutoKill();
 
+		var weaponTargetable = GetComponent<WeaponTargetable>();
+		if (weaponTargetable != null) {
+			weaponTargetable.SufferedLethalDamage += OnSufferedLethalDamage;
+		}
 
 	}
 
@@ -103,6 +108,12 @@ public class Enemy : MonoBehaviour
 			if (audioSource != null)
 				audioSource.pitch = AudioPitchAfterTarget;
 		}
+	}
+
+	public void OnSufferedLethalDamage(WeaponTargetable obj)
+	{
+		GameController.Instance.Score += scoreValue;
+		GameObject.Destroy(gameObject);
 	}
 
 	void LaunchAttackAgainstTarget()
@@ -123,5 +134,6 @@ public class Enemy : MonoBehaviour
 			audioSource.pitch = pitch;
 		}
 	}
+
 }
 
