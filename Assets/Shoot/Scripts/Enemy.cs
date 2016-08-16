@@ -121,8 +121,12 @@ public class Enemy : MonoBehaviour
 		fired = true;
 		var shooter = GetComponentInChildren<CityShooter>();
 		if (shooter != null) {
-			var target = myTarget.GetComponentInChildren<WeaponTargetable>();
-			shooter.LaunchAgainstTarget(target); 
+			if (myTarget.weaponTarget != null) {
+				shooter.LaunchAgainstTarget(myTarget.weaponTarget); 
+			} else {
+				var target = myTarget.GetComponentInChildren<WeaponTargetable>();
+				shooter.LaunchAgainstTarget(target); 
+			}
 		}
 	}
 

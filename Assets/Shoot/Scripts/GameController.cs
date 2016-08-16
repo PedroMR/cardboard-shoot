@@ -167,6 +167,10 @@ public class GameController : MonoBehaviour {
 		var targetPos = target.transform.position;
 
 		foreach (var shooter in shooters) {
+			var shooterTargetable = shooter.GetComponent<WeaponTargetable>();
+			if (shooterTargetable.Dead)
+				continue;
+
 			var newDistance = (shooter.transform.position - targetPos).sqrMagnitude;
 			if (newDistance < distance || closest == null) {
 				closest = shooter;

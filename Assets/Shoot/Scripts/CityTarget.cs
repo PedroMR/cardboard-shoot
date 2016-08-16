@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-[RequireComponent(typeof(WeaponTargetable))]
 public class CityTarget : MonoBehaviour
 {
 	public int Health {
@@ -21,7 +20,8 @@ public class CityTarget : MonoBehaviour
 
 	void Awake()
 	{
-		weaponTarget = GetComponent<WeaponTargetable>();
+		if (weaponTarget == null)
+			weaponTarget = GetComponent<WeaponTargetable>();
 		weaponTarget.SufferedDamage += OnSufferedDamage;
 		weaponTarget.SufferedLethalDamage += OnSufferedLethalDamage;
 	}

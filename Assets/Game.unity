@@ -3766,7 +3766,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 220158480}
-  - 114: {fileID: 220158482}
   - 114: {fileID: 220158481}
   m_Layer: 0
   m_Name: Target Position
@@ -3798,20 +3797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3de7afeb8646e6b252884b4996aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponTarget: {fileID: 0}
---- !u!114 &220158482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 220158479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 950db9f7271c34d819addfd956271615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  Dead: 0
+  weaponTarget: {fileID: 1203655169}
 --- !u!4 &224255306 stripped
 Transform:
   m_PrefabParentObject: {fileID: 488494, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
@@ -5988,7 +5974,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 346261432}
-  - 114: {fileID: 346261434}
   - 114: {fileID: 346261433}
   m_Layer: 0
   m_Name: Target Position (1)
@@ -6020,20 +6005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac3de7afeb8646e6b252884b4996aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponTarget: {fileID: 0}
---- !u!114 &346261434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 346261431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 950db9f7271c34d819addfd956271615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  Dead: 0
+  weaponTarget: {fileID: 1543803134}
 --- !u!1 &351588550
 GameObject:
   m_ObjectHideFlags: 0
