@@ -6,10 +6,15 @@ public class ScoreWatcher : MonoBehaviour
 {
 	public Text label;
 
+	public Text bestScoreLabel;
+
+	public static int BestScore = 0;
+
 	// Use this for initialization
 	void Start()
 	{
 		GameController.Instance.OnScoreChange += OnScoreChange;
+		bestScoreLabel.text = BestScore.ToString();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +27,12 @@ public class ScoreWatcher : MonoBehaviour
 	{
 		label.text = newScore.ToString();
 		//TODO speed through numbers, shine, etc
+
+
+		if (newScore > BestScore) {
+			BestScore = newScore;
+			bestScoreLabel.text = newScore.ToString();
+		}
 	}
 }
 
