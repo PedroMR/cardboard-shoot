@@ -71,6 +71,7 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+     <Compile Include="Assets\HideWhenPlaying.cs" />
      <Compile Include="Assets\SWS\Scripts\Helper\MoveAnimator.cs" />
      <Compile Include="Assets\SWS\Scripts\Helper\PathIndicator.cs" />
      <Compile Include="Assets\SWS\Scripts\Helper\PathRenderer.cs" />
