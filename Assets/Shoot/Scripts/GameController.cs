@@ -40,6 +40,14 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	enum GameState {
+		INTRO,
+		PLAYING,
+		OVER
+	};
+
+	GameState gameState;
+
 
 	public static GameController Instance;
 
@@ -53,10 +61,10 @@ public class GameController : MonoBehaviour {
 		Cardboard.SDK.Recenter();
 		Score = 0;
 		GameOverInfo.SetActive(false);
+		gameState = GameState.PLAYING;
 
 		var targets = City.GetComponentsInChildren<CityTarget>();
 		numTargetsAlive = targets.Length;
-		Debug.Log("Targets alive: " + numTargetsAlive);
 		foreach (var target in targets) {
 			target.weaponTarget.SufferedLethalDamage += OnCityTargetDied;
 		}
@@ -64,7 +72,6 @@ public class GameController : MonoBehaviour {
 
 	public void OnCityTargetDied(WeaponTargetable target) {
 		numTargetsAlive--;
-		Debug.Log("Target dead, now " + numTargetsAlive);
 
 		if (numTargetsAlive <= 0) {
 			GameOver();
@@ -77,26 +84,17 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void GameOver() {
-		GameOverInfo.SetActive(true);
-		GameOverInfo.transform.DOScale(0.01f, 4f).From().SetEase(Ease.OutBounce);
+		gameState = GameState.OVER;
 
+		GameOverInfo.SetActive(true);
+		GameOverInfo.transform.DOScale(0.01f, 4f).SetEase(Ease.OutBounce).SetDelay(1.0f).From();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		timeSinceSpawn += Time.deltaTime;
-		if (timeSinceSpawn > TimeToSpawnEnemy) {
-			timeSinceSpawn = 0;
-			SpawnEnemyWave();
-		}
-	
-		if (Input.GetKeyDown (KeyCode.J)) {
-			SpawnEnemyWave();
-		}
-
-		if (Input.GetKeyDown (KeyCode.G)) {
-			GameOver();
+		if (gameState == GameState.PLAYING) {
+			UpdatePlayingState();
 		}
 
 		if (Input.GetKey (KeyCode.F))
@@ -107,6 +105,23 @@ public class GameController : MonoBehaviour {
 		if (PlayerTurretHead != null) {
 			PlayerTurretHead.transform.rotation = MainCamera.transform.rotation;
 			PlayerTurretHead.transform.Rotate(0, -90, 0);
+		}
+	}
+
+	void UpdatePlayingState()
+	{
+		timeSinceSpawn += Time.deltaTime;
+		if (timeSinceSpawn > TimeToSpawnEnemy) {
+			timeSinceSpawn = 0;
+			SpawnEnemyWave();
+		}
+
+		if (Input.GetKeyDown (KeyCode.J)) {
+			SpawnEnemyWave();
+		}
+
+		if (Input.GetKeyDown (KeyCode.G)) {
+			GameOver();
 		}
 	}
 
