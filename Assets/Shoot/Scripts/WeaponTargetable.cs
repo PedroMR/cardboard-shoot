@@ -5,6 +5,7 @@ public class WeaponTargetable : MonoBehaviour
 {
 	public delegate void Callback(WeaponTargetable target);
 	public Callback WasDestroyed;
+	public Callback SufferedDamage;
 	public Callback SufferedLethalDamage;
 
 	public int Health = 100;
@@ -27,6 +28,10 @@ public class WeaponTargetable : MonoBehaviour
 			return;
 		
 		Health -= amount;
+
+		if (SufferedDamage != null)
+			SufferedDamage(this);
+
 		if (Health <= 0) {
 			Dead = true;
 			Health = 0;

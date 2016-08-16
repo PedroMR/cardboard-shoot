@@ -22,15 +22,21 @@ public class CityTarget : MonoBehaviour
 	void Awake()
 	{
 		weaponTarget = GetComponent<WeaponTargetable>();
+		weaponTarget.SufferedDamage += OnSufferedDamage;
 		weaponTarget.SufferedLethalDamage += OnSufferedLethalDamage;
+	}
+
+	public void OnSufferedDamage(WeaponTargetable which)
+	{
+		transform.parent.DOShakePosition(1, (Vector3.right + Vector3.forward) * 0.1f);
 	}
 
 	public void OnSufferedLethalDamage(WeaponTargetable which)
 	{
-		transform.parent.DOMoveY(-15, 5);
 
 		var original = transform.parent.position;
-		transform.parent.DOShakePosition(10, (Vector3.right + Vector3.forward) * 0.3f);
+		transform.parent.DOShakePosition(4, (Vector3.right + Vector3.forward) * 0.3f);
+		transform.parent.DOMoveY(-15, 5);
 //		transform.parent.DOMoveX(original., 5);
 	}
 }
