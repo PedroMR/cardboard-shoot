@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using DG.Tweening.Core;
+using DG.Tweening;
 using SWS;
 
 public class GameController : MonoBehaviour {
@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 	public GameObject MainCamera;
 	public GameObject PlayerTurretHead;
 	public GameObject City;
+	public GameObject GameOverInfo;
 
 	private float timeSinceSpawn;
 	public float TimeToSpawnEnemy = 8.0f;
@@ -23,6 +24,8 @@ public class GameController : MonoBehaviour {
 	public float WAVE_ENEMY_SEPARATION = 10f;
 
 	public int WAVE_MIN_ENEMIES = 2, WAVE_MAX_ENEMIES = 3;
+
+	private int numTargetsAlive;
 
 	public delegate void ScoreChange(int newScore);
 	public ScoreChange OnScoreChange;
@@ -49,11 +52,34 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		Cardboard.SDK.Recenter();
 		Score = 0;
+		GameOverInfo.SetActive(false);
+
+		var targets = City.GetComponentsInChildren<CityTarget>();
+		numTargetsAlive = targets.Length;
+		Debug.Log("Targets alive: " + numTargetsAlive);
+		foreach (var target in targets) {
+			target.weaponTarget.SufferedLethalDamage += OnCityTargetDied;
+		}
+	}
+
+	public void OnCityTargetDied(WeaponTargetable target) {
+		numTargetsAlive--;
+		Debug.Log("Target dead, now " + numTargetsAlive);
+
+		if (numTargetsAlive <= 0) {
+			GameOver();
+		}
 	}
 
 	public void ResetGame() {
 		VRPreferences.Instance.SaveSettings();
 		SceneManager.LoadScene("Game");
+	}
+
+	public void GameOver() {
+		GameOverInfo.SetActive(true);
+		GameOverInfo.transform.DOScale(0.01f, 4f).From().SetEase(Ease.OutBounce);
+
 	}
 	
 	// Update is called once per frame
@@ -69,15 +95,8 @@ public class GameController : MonoBehaviour {
 			SpawnEnemyWave();
 		}
 
-		if (Input.GetKeyDown (KeyCode.R)) {
-			var src = RocketPrefab;
-			var spawner = PlayerTurretSpawn.transform;
-			var spawnPoint = spawner.position;
-			var obj = (GameObject)GameObject.Instantiate(src, spawnPoint, spawner.rotation);
-
-			var rigidBody = obj.GetComponent<Rigidbody> ();
-			rigidBody.AddRelativeForce(2000, 0, 0);
-//			hud.TrackObject(obj.GetComponent<Targetable>());
+		if (Input.GetKeyDown (KeyCode.G)) {
+			GameOver();
 		}
 
 		if (Input.GetKey (KeyCode.F))

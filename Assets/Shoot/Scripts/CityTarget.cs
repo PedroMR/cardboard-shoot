@@ -13,7 +13,7 @@ public class CityTarget : MonoBehaviour
 		}
 	}
 
-	private WeaponTargetable weaponTarget;
+	public WeaponTargetable weaponTarget;
 
 	public CityTarget()
 	{

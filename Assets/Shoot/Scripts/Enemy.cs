@@ -128,7 +128,7 @@ public class Enemy : MonoBehaviour
 
 	public void Update()
 	{
-		if (audioSource != null && !fired) {
+		if (audioSource != null && !fired && myTarget != null) {
 			var distance = Vector3.Distance(myTarget.transform.position, this.transform.position);
 			var pitch = Mathf.Lerp(AudioPitchAtTarget, AudioPitchAtStart, distance / initialDistance);
 			audioSource.pitch = pitch;
