@@ -98,9 +98,9 @@ public class GameController : MonoBehaviour {
 		}
 
 		if (Input.GetKey (KeyCode.F))
-			Time.timeScale = 16;
-		else
-			Time.timeScale = 1;
+			Time.timeScale = 16f;
+		else if (Time.timeScale > 1f)
+			Time.timeScale = 1f;
 
 		if (PlayerTurretHead != null) {
 			PlayerTurretHead.transform.rotation = MainCamera.transform.rotation;
@@ -179,6 +179,10 @@ public class GameController : MonoBehaviour {
 		}
 
 		return closest;
+	}
+
+	public void TogglePause() {
+		Time.timeScale = 1f - Time.timeScale;
 	}
 
 }
