@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 	public float AudioPitchAtTarget = 3.0f;
 	public float AudioPitchAfterTarget = 0.8f;
 
+	public GameObject Model;
+
 	public int scoreValue = 5;
 
 	CityTarget myTarget;
@@ -94,6 +96,7 @@ public class Enemy : MonoBehaviour
 			weaponTargetable.SufferedLethalDamage += OnSufferedLethalDamage;
 		}
 
+		Model.transform.DOScale(0.01f, 0.5f).SetDelay(0.5f).SetEase(Ease.InQuad).From();
 	}
 
 	public void OnPathComplete()
