@@ -15,11 +15,12 @@ public class GameController : MonoBehaviour {
 	public GameObject City;
 	public GameObject GameOverInfo;
 
-	private float timeSinceSpawn;
-	public float TimeToSpawnEnemy = 8.0f;
+	private float timeUntilSpawn;
+	public FloatRange TimeToSpawnEnemy = new FloatRange(4.0f, 8.0f);
 	public float EnemySpawnDistance = 60f;
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
+	public float EnemyEmptyChance = 0.1f;
 
 	public float WAVE_ENEMY_SEPARATION = 10f;
 
@@ -68,6 +69,8 @@ public class GameController : MonoBehaviour {
 		foreach (var target in targets) {
 			target.weaponTarget.SufferedLethalDamage += OnCityTargetDied;
 		}
+
+		timeUntilSpawn = 5.0f;
 	}
 
 	public void OnCityTargetDied(WeaponTargetable target) {
@@ -110,9 +113,9 @@ public class GameController : MonoBehaviour {
 
 	void UpdatePlayingState()
 	{
-		timeSinceSpawn += Time.deltaTime;
-		if (timeSinceSpawn > TimeToSpawnEnemy) {
-			timeSinceSpawn = 0;
+		timeUntilSpawn -= Time.deltaTime;
+		if (timeUntilSpawn <= 0) {
+			timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
 			SpawnEnemyWave();
 		}
 
@@ -133,6 +136,9 @@ public class GameController : MonoBehaviour {
 
 	void SpawnEnemyWave ()
 	{
+		if (Random.value < EnemyEmptyChance)
+			return;
+		
 		var waveCenter = Vector3.zero;
 		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);

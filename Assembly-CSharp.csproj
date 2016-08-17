@@ -85,6 +85,7 @@
      <Compile Include="Assets\Shoot\Scripts\Cityscape.cs" />
      <Compile Include="Assets\Shoot\Scripts\Config.cs" />
      <Compile Include="Assets\Shoot\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Shoot\Scripts\FloatRange.cs" />
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />
      <Compile Include="Assets\Shoot\Scripts\HealthWatcher.cs" />
      <Compile Include="Assets\Shoot\Scripts\LockProgressUI.cs" />
