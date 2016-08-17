@@ -50,6 +50,7 @@ public class Cityscape : MonoBehaviour {
 							continue;
 
 						var newBuilding = (GameObject)GameObject.Instantiate(BuildingPrefab, pos, Quaternion.identity);
+						newBuilding.hideFlags = HideFlags.HideInHierarchy;
 						newBuilding.transform.parent = container.transform;
 						var scale = newBuilding.transform.localScale;
 						scale.y *= Random.Range(MinHeight, MaxHeight);
@@ -68,15 +69,5 @@ public class Cityscape : MonoBehaviour {
 
 	void Awake() {
 		container = this.gameObject;
-	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
