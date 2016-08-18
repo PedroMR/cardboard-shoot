@@ -99,6 +99,9 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="Google.ProtocolBuffers">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween">
  <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween.dll</HintPath>
  </Reference>
@@ -110,9 +113,6 @@
  </Reference>
  <Reference Include="DOTween50">
  <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween50.dll</HintPath>
- </Reference>
- <Reference Include="Google.ProtocolBuffers">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
