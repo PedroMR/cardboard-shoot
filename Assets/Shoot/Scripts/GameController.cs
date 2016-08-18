@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Cardboard.SDK.Recenter();
+		GvrViewer.Instance.Recenter();
 		Score = 0;
 		GameOverInfo.SetActive(false);
 		gameState = GameState.PLAYING;

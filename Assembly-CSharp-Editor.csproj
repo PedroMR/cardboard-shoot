@@ -45,14 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioListenerEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioRoomEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioSourceEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardGazeEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardMenu.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardSetup.cs" />
-     <Compile Include="Assets\Cardboard\Editor\StereoControllerEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Editor\GvrAudioListenerEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Editor\GvrAudioRoomEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Editor\GvrAudioSoundfieldEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Editor\GvrAudioSourceEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Editor\GvrGazeEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Legacy\Editor\GvrMenu.cs" />
+     <Compile Include="Assets\GoogleVR\Legacy\Editor\GvrViewerEditor.cs" />
+     <Compile Include="Assets\GoogleVR\Legacy\Editor\StereoControllerEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\AboutSWSEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\BezierPathEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\CreateWPManager.cs" />
@@ -63,11 +63,11 @@
      <Compile Include="Assets\SWS\Scripts\Editor\navMoveEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\splineMoveEditor.cs" />
      <Compile Include="Assets\Shoot\Editor\CityscapeEditor.cs" />
-     <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
+     <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\SWS\README.txt" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween43.xml" />
-     <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
+     <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween46.xml" />
      <None Include="Assets\SWS\Extensions\DOTween\readme.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
@@ -76,8 +76,8 @@
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\SWS\Changelog.txt" />
-     <None Include="Assets\Cardboard\Resources\UI\CardboardReticleShader.shader" />
-     <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
+     <None Include="Assets\GoogleVR\Resources\UI\GvrReticleShader.shader" />
+     <None Include="Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween50.xml" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="UnityEditor.Advertisements">
@@ -130,6 +130,9 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.ProtocolBuffers">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -6226,7 +6226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &393041723
 GameObject:
   m_ObjectHideFlags: 1
@@ -7686,6 +7686,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
   m_IsPrefabParent: 0
@@ -8517,7 +8521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc75841002a164153a0092744be0a211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 831766266}
+  hud: {fileID: 0}
   Enemy: {fileID: 121522, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
   RocketPrefab: {fileID: 135520, guid: fcc6acaf533e640158b256c092076c27, type: 2}
   PlayerTurretSpawn: {fileID: 0}
@@ -14248,12 +14252,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809084296}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &831766266 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11429476, guid: b8b03d395f5734e98af91ccf44f9bf47,
-    type: 2}
-  m_PrefabInternal: {fileID: 437064765}
-  m_Script: {fileID: 11500000, guid: 632c6e00f89164c57b24860dd636f922, type: 3}
 --- !u!1 &835704729
 GameObject:
   m_ObjectHideFlags: 1
@@ -17742,6 +17740,7 @@ MonoBehaviour:
   sourceLoop: 1
   sourceMute: 0
   sourcePitch: 1
+  sourcePriority: 128
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0
@@ -20080,8 +20079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrModeOnly: 0
-  clickTime: 0.1
-  hotspot: {x: 0.5, y: 0.5}
 --- !u!114 &1113738067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21796,6 +21793,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
+  sourcePriority: 128
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0
@@ -27729,6 +27727,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
+  sourcePriority: 128
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0

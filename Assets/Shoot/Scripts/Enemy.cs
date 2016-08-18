@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 	public int scoreValue = 5;
 
 	CityTarget myTarget;
-	CardboardAudioSource audioSource;
+	GvrAudioSource audioSource;
 	float initialDistance;
 	bool fired = false;
 
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
 	public void Start()
 	{
-		audioSource = GetComponent<CardboardAudioSource>();
+		audioSource = GetComponent<GvrAudioSource>();
 		if (audioSource != null)
 			audioSource.pitch = 1;
 

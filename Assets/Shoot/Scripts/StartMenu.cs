@@ -5,7 +5,7 @@ public class StartMenu : MonoBehaviour {
 	public GameObject uiMenu;
 
 	void Start() {
-		Cardboard.SDK.Recenter();
+		GvrViewer.Instance.Recenter();
 
 		if (uiMenu != null) {
 			var menuCopy = (GameObject)GameObject.Instantiate(uiMenu, uiMenu.transform.position, uiMenu.transform.rotation);

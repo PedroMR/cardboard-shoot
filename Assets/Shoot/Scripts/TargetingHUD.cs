@@ -60,7 +60,7 @@ public class TargetingHUD : MonoBehaviour {
 			if (((int)(prevLock * beepsPerLock)) != (int)(currentLock*beepsPerLock) || prevLock == 0) {
 				var ui = targetUIs [target];
 				if (ui != null) {
-					var audio = ui.GetComponent<CardboardAudioSource>();
+					var audio = ui.GetComponent<GvrAudioSource>();
 					if (audio != null)
 						audio.Play();
 				}
