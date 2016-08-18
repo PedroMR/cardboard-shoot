@@ -147,7 +147,6 @@ GameObject:
   - 4: {fileID: 492692}
   - 114: {fileID: 11487356}
   - 114: {fileID: 11423262}
-  - 114: {fileID: 11418694}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -643,33 +642,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11418694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bypassRoomEffects: 0
-  directivityAlpha: 0
-  directivitySharpness: 1
-  gainDb: 16.5
-  occlusionEnabled: 0
-  playOnAwake: 1
-  rolloffMode: 1
-  spread: 0
-  sourceClip: {fileID: 8300000, guid: 87896859c7dde4a1bb96b2b39b135161, type: 3}
-  sourceLoop: 1
-  sourceMute: 0
-  sourcePitch: 1
-  sourceVolume: 1
-  sourceMaxDistance: 500
-  sourceMinDistance: 0
-  hrtfEnabled: 1
 --- !u!114 &11423262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,12 +659,13 @@ MonoBehaviour:
   gainDb: 6.1
   occlusionEnabled: 0
   playOnAwake: 1
-  rolloffMode: 1
+  rolloffMode: 0
   spread: 0
   sourceClip: {fileID: 8300000, guid: 8e519cecaa7524a6cbdc35796e472def, type: 3}
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
+  sourcePriority: 128
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0
