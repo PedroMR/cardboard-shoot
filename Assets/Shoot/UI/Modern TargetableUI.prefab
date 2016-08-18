@@ -63,7 +63,7 @@ GameObject:
   - 114: {fileID: 11460066}
   - 114: {fileID: 11420928}
   m_Layer: 0
-  m_Name: TargetableUI 2
+  m_Name: Modern TargetableUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
+  sourcePriority: 128
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0
