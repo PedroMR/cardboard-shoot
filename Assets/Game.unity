@@ -9868,7 +9868,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -870, y: -496}
+  m_AnchoredPosition: {x: -870, y: -398}
   m_SizeDelta: {x: 176, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564964842
@@ -15450,7 +15450,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 306
   m_TargetDisplay: 0
 --- !u!224 &892995910
 RectTransform:
@@ -23285,7 +23285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453700, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22453700, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -27750,7 +27750,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453700, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 22453700, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -34461,10 +34461,6 @@ Prefab:
     - target: {fileID: 488494, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433922, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
-      propertyPath: gainDb
-      value: 9.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}

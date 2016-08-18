@@ -362,7 +362,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121522}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -13.902021, y: 12.418697, z: 6.259367}
+  m_LocalPosition: {x: -14.518784, y: 11.710087, z: 6.953133}
   m_LocalScale: {x: 0.04003631, y: 0.040036328, z: 0.040036328}
   m_Children:
   - {fileID: 434202}
@@ -661,7 +661,7 @@ MonoBehaviour:
   bypassRoomEffects: 0
   directivityAlpha: 0
   directivitySharpness: 1
-  gainDb: 24
+  gainDb: 9.7
   occlusionEnabled: 0
   playOnAwake: 1
   rolloffMode: 0
@@ -1001,7 +1001,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 4294967295
+        rgba: 3774873462
       maxColor:
         serializedVersion: 2
         rgba: 4285229931
@@ -6845,7 +6845,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 2734684594
+        rgba: 2734683524
       minMaxState: 0
     startSize:
       scalar: 5
