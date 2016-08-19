@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 
 	private float timeUntilSpawn;
 	public FloatRange TimeToSpawnEnemy = new FloatRange(4.0f, 8.0f);
-	public float EnemySpawnDistance = 60f;
+	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
 	public float EnemyEmptyChance = 0.1f;
@@ -145,7 +145,8 @@ public class GameController : MonoBehaviour {
 		var waveCenter = Vector3.zero;
 		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
-		Util.SphericalToCartesian(EnemySpawnDistance, polar, elevation, out waveCenter);
+		var distance = EnemySpawnDistance.GetRandomValue();
+		Util.SphericalToCartesian(distance, polar, elevation, out waveCenter);
 
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
 		var src = Enemy;
