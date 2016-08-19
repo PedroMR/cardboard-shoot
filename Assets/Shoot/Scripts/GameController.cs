@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
 	private float timeUntilSpawn;
 	public FloatRange TimeToSpawnEnemy = new FloatRange(4.0f, 8.0f);
 	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
+	public FloatRange EnemySpawnDelay = new FloatRange(0f, 1f);
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
 	public float EnemyEmptyChance = 0.1f;
@@ -151,17 +152,30 @@ public class GameController : MonoBehaviour {
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
 		var src = Enemy;
 		for (var i=0; i < enemiesInWave; i++) {
-			var obj = GameObject.Instantiate (src);
-			hud.TrackObject (obj.GetComponent<PlayerTargetable> ());
-			
 			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
 			var pos = waveCenter + delta;
-			obj.transform.position = pos;
-			obj.transform.LookAt(Vector3.zero);
-
-			var targetable = obj.GetComponent<PlayerTargetable>();
-			targetable.WasLockedOn += OnLockedEnemy;
+			StartCoroutine(SpawnEnemyAfterDelayAt(src, pos, EnemySpawnDelay.GetRandomValue()));
 		}
+	}
+
+	private IEnumerator SpawnEnemyAfterDelayAt(GameObject src, Vector3 pos, float delay)
+	{
+		yield return new WaitForSeconds(delay);
+
+		SpawnEnemyAt(src, pos);
+	}
+
+	private GameObject SpawnEnemyAt(GameObject src, Vector3 pos)
+	{
+		var obj = GameObject.Instantiate (src);
+		hud.TrackObject (obj.GetComponent<PlayerTargetable> ());			
+		obj.transform.position = pos;
+		obj.transform.LookAt(Vector3.zero);
+
+		var targetable = obj.GetComponent<PlayerTargetable>();
+		targetable.WasLockedOn += OnLockedEnemy;
+
+		return obj;
 	}
 
 	public void OnLockedEnemy(PlayerTargetable target) {
