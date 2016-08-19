@@ -25,24 +25,11 @@ public class Enemy : MonoBehaviour
 
 	public CityTarget FindTarget()
 	{
-		var targets = GameController.Instance.City.GetComponentsInChildren<CityTarget>();
+		var target = GameController.Instance.FindCityTargetClosestTo(this.transform.position);
 
-		CityTarget closest = null;
-		var closestRange = float.MaxValue;
-		foreach (var target in targets) {
-			if (target.Health <= 0)
-				continue;
+		initialDistance = Vector3.Distance(target.transform.position, this.transform.position);
 
-			var range = Vector3.Distance(target.transform.position, this.transform.position);
-			if (range < closestRange)
-			{
-				closest = target;
-				closestRange = range;
-			}
-		}
-
-		initialDistance = closestRange;
-		return closest;
+		return target;
 	}
 
 	public void Start()
@@ -82,15 +69,11 @@ public class Enemy : MonoBehaviour
 			.SetLookAt(0f)
 			.SetSpeedBased()
 			.SetEase(Ease.InQuad)
-//			.SetLoops(-1, LoopType.Yoyo)
 			.SetAutoKill()
 			.OnComplete(OnPathComplete)
 			.OnWaypointChange(OnWaypointChanged)
 			;
-
-//		transform.DOMove(targetPos, 10.0f).SetLoops(3, LoopType.Yoyo).SetAutoKill();
-//		transform.DOMove(targetPos, 1.0f).SetSpeedBased().SetEase(Ease.Linear).SetLoops(3, LoopType.Yoyo).SetAutoKill();
-
+		
 		var weaponTargetable = GetComponent<WeaponTargetable>();
 		if (weaponTargetable != null) {
 			weaponTargetable.SufferedLethalDamage += OnSufferedLethalDamage;

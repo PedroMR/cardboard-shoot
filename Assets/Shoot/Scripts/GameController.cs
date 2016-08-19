@@ -205,6 +205,27 @@ public class GameController : MonoBehaviour {
 		return closest;
 	}
 
+	public CityTarget FindCityTargetClosestTo(Vector3 position)
+	{
+		var targets = City.GetComponentsInChildren<CityTarget>();
+
+		CityTarget closest = null;
+		var closestRange = float.MaxValue;
+		foreach (var target in targets) {
+			if (target.Health <= 0)
+				continue;
+
+			var range = Vector3.Distance(target.transform.position, position);
+			if (range < closestRange)
+			{
+				closest = target;
+				closestRange = range;
+			}
+		}
+
+		return closest;
+	}
+
 	public void TogglePause() {
 		Time.timeScale = 1f - Time.timeScale;
 	}
