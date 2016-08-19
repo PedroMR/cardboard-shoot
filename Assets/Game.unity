@@ -3751,7 +3751,7 @@ GameObject:
   - 4: {fileID: 220158480}
   - 114: {fileID: 220158481}
   m_Layer: 0
-  m_Name: Target Position
+  m_Name: Target Position M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5584,7 +5584,7 @@ GameObject:
   - 4: {fileID: 346261432}
   - 114: {fileID: 346261433}
   m_Layer: 0
-  m_Name: Target Position (1)
+  m_Name: Target Position Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5598,7 +5598,7 @@ Transform:
   m_GameObject: {fileID: 346261431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.349, z: 0}
-  m_LocalScale: {x: 1, y: 1.107438, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1943192157}
   m_RootOrder: 1
@@ -12640,7 +12640,7 @@ GameObject:
   - 65: {fileID: 736877125}
   - 23: {fileID: 736877124}
   m_Layer: 0
-  m_Name: Target 2
+  m_Name: Target M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21992,7 +21992,7 @@ GameObject:
   - 114: {fileID: 1203655168}
   - 114: {fileID: 1203655169}
   m_Layer: 0
-  m_Name: Shooter (1)
+  m_Name: Shooter M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27950,7 +27950,7 @@ GameObject:
   - 114: {fileID: 1543803133}
   - 114: {fileID: 1543803134}
   m_Layer: 0
-  m_Name: Shooter
+  m_Name: Shooter Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33745,7 +33745,7 @@ GameObject:
   - 65: {fileID: 1943192159}
   - 23: {fileID: 1943192158}
   m_Layer: 0
-  m_Name: Target 1
+  m_Name: Target Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

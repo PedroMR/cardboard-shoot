@@ -222,13 +222,16 @@ public class GameController : MonoBehaviour {
 	{
 		var targets = City.GetComponentsInChildren<CityTarget>();
 
+		Debug.Log("city targets: " + targets.Length);
+
 		CityTarget closest = null;
 		var closestRange = float.MaxValue;
 		foreach (var target in targets) {
 			if (target.Health <= 0)
 				continue;
 
-			var range = Vector3.Distance(target.transform.position, this.transform.position);
+			var range = Vector3.Distance(target.transform.position, position);
+			Debug.Log("range: " + range);
 			if (range < closestRange)
 			{
 				closest = target;
