@@ -732,11 +732,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlyingToPosition: {x: 0, y: 0, z: 0}
-  MaxSpeed: 18
+  MaxSpeed: 12
   Acceleration: 4
-  TRIGGER_DISTANCE_SQ: 4
+  TRIGGER_DISTANCE_SQ: 2
   ExplosionEffect: {fileID: 138750, guid: 892b731dd117a480ca1e9b891fdb4b41, type: 2}
-  Damage: 2
+  Damage: 1
 --- !u!114 &11425102
 MonoBehaviour:
   m_ObjectHideFlags: 1
