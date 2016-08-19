@@ -45,6 +45,24 @@ public class Enemy : MonoBehaviour
 			targetPos = myTarget.transform.position + Vector3.up * 9;
 		}
 
+		var waypoints = CreatePathToBuilding(targetPos);
+
+		transform.LookAt(targetPos);
+		transform.DOPath(waypoints, PATH_SPEED, PathType.CatmullRom, PathMode.Full3D, 10, Color.magenta)
+			.SetLookAt(0f)
+			.SetSpeedBased()
+			.SetEase(Ease.InQuad)
+			.SetAutoKill()
+			.OnComplete(OnPathComplete)
+			.OnWaypointChange(OnWaypointChanged)
+			;
+		
+
+		Model.transform.DOScale(0.01f, 0.5f).SetDelay(0.5f).SetEase(Ease.InQuad).From();
+	}
+
+	private Vector3[] CreatePathToBuilding(Vector3 targetPos)
+	{
 		Vector3[] waypoints = new Vector3[3];
 
 		waypoints[0] = this.transform.position;
@@ -62,18 +80,7 @@ public class Enemy : MonoBehaviour
 		var r = delta + waypoints[1];
 		waypoints[2] = r;
 
-		transform.LookAt(targetPos);
-		transform.DOPath(waypoints, PATH_SPEED, PathType.CatmullRom, PathMode.Full3D, 10, Color.magenta)
-			.SetLookAt(0f)
-			.SetSpeedBased()
-			.SetEase(Ease.InQuad)
-			.SetAutoKill()
-			.OnComplete(OnPathComplete)
-			.OnWaypointChange(OnWaypointChanged)
-			;
-		
-
-		Model.transform.DOScale(0.01f, 0.5f).SetDelay(0.5f).SetEase(Ease.InQuad).From();
+		return waypoints;
 	}
 
 	public void OnPathComplete()

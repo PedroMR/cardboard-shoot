@@ -102,6 +102,7 @@
      <Compile Include="Assets\Shoot\Scripts\Config.cs" />
      <Compile Include="Assets\Shoot\Scripts\DestroyForPoints.cs" />
      <Compile Include="Assets\Shoot\Scripts\Enemies\Carrier.cs" />
+     <Compile Include="Assets\Shoot\Scripts\Enemies\Drone.cs" />
      <Compile Include="Assets\Shoot\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Shoot\Scripts\FloatRange.cs" />
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />

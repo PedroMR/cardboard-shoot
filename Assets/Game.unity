@@ -6033,7 +6033,7 @@ Transform:
   - {fileID: 1718946481}
   - {fileID: 865092079}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
 --- !u!1 &373362404
 GameObject:
   m_ObjectHideFlags: 1
@@ -6189,19 +6189,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1034114162}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.518784
+      value: 86.8
       objectReference: {fileID: 0}
     - target: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.710087
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.953133
+      value: 60.6
       objectReference: {fileID: 0}
     - target: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6221,7 +6221,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11423804, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
       propertyPath: RocketPrefab
@@ -12835,7 +12835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &740287015
 GameObject:
   m_ObjectHideFlags: 1
@@ -15510,7 +15510,7 @@ RectTransform:
   m_Children:
   - {fileID: 564964841}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -16258,7 +16258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459876, guid: 2236949c9abd04bd990a1acb41240bba, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2236949c9abd04bd990a1acb41240bba, type: 2}
@@ -19042,10 +19042,9 @@ Transform:
   - {fileID: 955127919}
   - {fileID: 69729804}
   - {fileID: 918539774}
-  - {fileID: 1395203595}
   - {fileID: 1688955210}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1034114163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20401,7 +20400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &1115241301
 GameObject:
   m_ObjectHideFlags: 1
@@ -24591,10 +24590,6 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 142686, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
   m_PrefabInternal: {fileID: 381138294}
---- !u!4 &1395203595 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 448298, guid: 2dfcb07ccf62342ee8af2da51dbff880, type: 2}
-  m_PrefabInternal: {fileID: 381138294}
 --- !u!1 &1395985604
 GameObject:
   m_ObjectHideFlags: 1
@@ -27272,7 +27267,7 @@ Transform:
   - {fileID: 1693921614}
   - {fileID: 411378238}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &1499060387
 GameObject:
   m_ObjectHideFlags: 0
@@ -27359,7 +27354,7 @@ RectTransform:
   m_Children:
   - {fileID: 1968184281}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.74, y: 0.477}
@@ -32869,7 +32864,7 @@ Transform:
   - {fileID: 1639361861}
   - {fileID: 1694648586}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1880993683
 GameObject:
   m_ObjectHideFlags: 1
@@ -36070,7 +36065,7 @@ Transform:
   m_LocalScale: {x: 1.6369095, y: 7.52564, z: 1.5854902}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &2093869160
 GameObject:
   m_ObjectHideFlags: 1
