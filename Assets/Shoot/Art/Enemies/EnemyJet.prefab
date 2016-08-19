@@ -30,7 +30,7 @@ GameObject:
   - 4: {fileID: 444912}
   - 199: {fileID: 19937944}
   - 198: {fileID: 19873676}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ GameObject:
   - 114: {fileID: 11433922}
   - 114: {fileID: 11402110}
   - 114: {fileID: 11454460}
+  - 114: {fileID: 11463768}
   m_Layer: 8
   m_Name: EnemyJet
   m_TagString: Untagged
@@ -193,7 +194,7 @@ GameObject:
   - 135: {fileID: 13581130}
   - 114: {fileID: 11407494}
   - 114: {fileID: 11458400}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Afterburner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,6 +729,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 0.5
+--- !u!114 &11463768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b23bc292252447c896798b48c25aba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreValue: 5
 --- !u!114 &11479782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -755,7 +768,6 @@ MonoBehaviour:
   AudioPitchAtTarget: 8
   AudioPitchAfterTarget: 0.8
   Model: {fileID: 191576}
-  scoreValue: 5
 --- !u!135 &13502516
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ GameObject:
   - 198: {fileID: 19844596}
   - 135: {fileID: 13569034}
   - 114: {fileID: 11436776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Afterburner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - 4: {fileID: 416426}
   - 199: {fileID: 19958490}
   - 198: {fileID: 19867488}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

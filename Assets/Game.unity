@@ -19207,22 +19207,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1035721573}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1037858257 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 121522, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
-  m_PrefabInternal: {fileID: 1996068710}
---- !u!114 &1037858258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1037858257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b23bc292252447c896798b48c25aba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreValue: 5
 --- !u!1 &1053062380
 GameObject:
   m_ObjectHideFlags: 1
@@ -34582,10 +34566,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488494, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 121522, guid: 6b34dd30e0f8c47d993e63ec5814f86b, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
