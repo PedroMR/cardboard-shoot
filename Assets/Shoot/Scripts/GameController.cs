@@ -154,7 +154,7 @@ public class GameController : MonoBehaviour {
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
 		var src = Enemy;
 		
-		if (Random.value < 0.3f) {
+		if (Random.value < 0.1f) {
 			src = EnemyCarrier;
 			enemiesInWave = 1;
 		}
