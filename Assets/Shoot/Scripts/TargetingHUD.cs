@@ -49,6 +49,8 @@ public class TargetingHUD : MonoBehaviour {
 			if (collider != null) {
 				collider.enabled = false;
 			}
+			target.SetGazedAt(false);
+			target.gameObject.layer = 0;
 		}
 	}
 

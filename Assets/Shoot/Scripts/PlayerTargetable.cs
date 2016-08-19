@@ -5,10 +5,9 @@ using System.Collections;
 [RequireComponent(typeof(Collider))][RequireComponent(typeof(WeaponTargetable))]
 public class PlayerTargetable : MonoBehaviour {
 	bool gazedAt;
-	public float RotationSpeed = 0.5f;
 
 	public float lockProgress = 0f;
-	const float LOCK_PER_SECOND = 1f;
+	public float SecondsToLock = 1f;
 
 	public delegate void Callback(PlayerTargetable target);
 	public delegate void ProgressCallback(PlayerTargetable target, float currentLock, float prevLock);
@@ -17,6 +16,7 @@ public class PlayerTargetable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GameController.Instance.OnTargetableSpawned(this);
 	}
 
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class PlayerTargetable : MonoBehaviour {
 		if (gazedAt) {
 			var prevLock = lockProgress;
 
-			lockProgress += LOCK_PER_SECOND * Time.deltaTime;
+			lockProgress += Time.deltaTime / SecondsToLock;
 			lockProgress = Mathf.Clamp01(lockProgress);
 
 			if (OnLockProgress != null) {

@@ -7,6 +7,7 @@ using SWS;
 
 public class GameController : MonoBehaviour {
 	public TargetingHUD hud;
+	public GameObject EnemyCarrier;
 	public GameObject Enemy;
 	public GameObject RocketPrefab;
 	public GameObject PlayerTurretSpawn;
@@ -142,15 +143,22 @@ public class GameController : MonoBehaviour {
 	{
 		if (Random.value < EnemyEmptyChance)
 			return;
-		
+
 		var waveCenter = Vector3.zero;
 		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
 		var distance = EnemySpawnDistance.GetRandomValue();
 		Util.SphericalToCartesian(distance, polar, elevation, out waveCenter);
 
+
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
 		var src = Enemy;
+		
+		if (Random.value < 0.3f) {
+			src = EnemyCarrier;
+			enemiesInWave = 1;
+		}
+
 		for (var i=0; i < enemiesInWave; i++) {
 			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
 			var pos = waveCenter + delta;
@@ -168,14 +176,19 @@ public class GameController : MonoBehaviour {
 	private GameObject SpawnEnemyAt(GameObject src, Vector3 pos)
 	{
 		var obj = GameObject.Instantiate (src);
-		hud.TrackObject (obj.GetComponent<PlayerTargetable> ());			
 		obj.transform.position = pos;
-		obj.transform.LookAt(Vector3.zero);
+//		obj.transform.LookAt(Vector3.zero);
 
-		var targetable = obj.GetComponent<PlayerTargetable>();
-		targetable.WasLockedOn += OnLockedEnemy;
+//		var targetable = obj.GetComponent<PlayerTargetable>();
+//		hud.TrackObject(targetable);			
+//		targetable.WasLockedOn += OnLockedEnemy;
 
 		return obj;
+	}
+
+	public void OnTargetableSpawned(PlayerTargetable targetable) {
+		hud.TrackObject(targetable);			
+		targetable.WasLockedOn += OnLockedEnemy;
 	}
 
 	public void OnLockedEnemy(PlayerTargetable target) {
@@ -209,6 +222,8 @@ public class GameController : MonoBehaviour {
 	{
 		var targets = City.GetComponentsInChildren<CityTarget>();
 
+		Debug.Log("city targets: " + targets.Length);
+
 		CityTarget closest = null;
 		var closestRange = float.MaxValue;
 		foreach (var target in targets) {
@@ -216,6 +231,7 @@ public class GameController : MonoBehaviour {
 				continue;
 
 			var range = Vector3.Distance(target.transform.position, position);
+			Debug.Log("range: " + range);
 			if (range < closestRange)
 			{
 				closest = target;
