@@ -23,6 +23,11 @@ public class CityShooter : MonoBehaviour
 
 	public Missile LaunchAgainstTarget(WeaponTargetable target, Vector3 offset, Vector3? waypoint)
 	{
+		if (RocketPrefab == null) {
+			Debug.LogError("No prefab assigned to this shooter! "+ gameObject.name);
+			return null;
+		}
+
 		var sourcePosition = transform.position + offset;
 
 		var obj = (GameObject)GameObject.Instantiate(RocketPrefab, sourcePosition, Quaternion.identity);
