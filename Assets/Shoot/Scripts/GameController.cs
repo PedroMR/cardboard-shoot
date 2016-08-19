@@ -148,7 +148,6 @@ public class GameController : MonoBehaviour {
 		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
 		var distance = EnemySpawnDistance.GetRandomValue();
-		Util.SphericalToCartesian(distance, polar, elevation, out waveCenter);
 
 
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
@@ -157,7 +156,10 @@ public class GameController : MonoBehaviour {
 		if (Random.value < 0.1f) {
 			src = EnemyCarrier;
 			enemiesInWave = 1;
+			distance *= 2;
 		}
+
+		Util.SphericalToCartesian(distance, polar, elevation, out waveCenter);
 
 		for (var i=0; i < enemiesInWave; i++) {
 			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
