@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
 
 	public GameObject Model;
 
-	public int scoreValue = 5;
-
 	CityTarget myTarget;
 	GvrAudioSource audioSource;
 	float initialDistance;
@@ -74,10 +72,6 @@ public class Enemy : MonoBehaviour
 			.OnWaypointChange(OnWaypointChanged)
 			;
 		
-		var weaponTargetable = GetComponent<WeaponTargetable>();
-		if (weaponTargetable != null) {
-			weaponTargetable.SufferedLethalDamage += OnSufferedLethalDamage;
-		}
 
 		Model.transform.DOScale(0.01f, 0.5f).SetDelay(0.5f).SetEase(Ease.InQuad).From();
 	}
@@ -94,12 +88,6 @@ public class Enemy : MonoBehaviour
 			if (audioSource != null)
 				audioSource.pitch = AudioPitchAfterTarget;
 		}
-	}
-
-	public void OnSufferedLethalDamage(WeaponTargetable obj)
-	{
-		GameController.Instance.Score += scoreValue;
-		GameObject.Destroy(gameObject);
 	}
 
 	void LaunchAttackAgainstTarget()
