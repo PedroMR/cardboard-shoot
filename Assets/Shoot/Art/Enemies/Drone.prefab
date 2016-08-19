@@ -119,6 +119,7 @@ GameObject:
   - 114: {fileID: 11427168}
   - 114: {fileID: 11425102}
   - 65: {fileID: 6562236}
+  - 135: {fileID: 13551240}
   m_Layer: 8
   m_Name: Drone
   m_TagString: Untagged
@@ -293,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 169556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3743665, y: 0.96588886, z: 9.748323}
-  m_LocalScale: {x: 2.6, y: 1.6, z: 1.6}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children:
   - {fileID: 404110}
   - {fileID: 427676}
@@ -574,7 +575,7 @@ BoxCollider:
   m_GameObject: {fileID: 169556}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.57, y: 1, z: 2.63}
   m_Center: {x: 0, y: 0, z: 0.5}
@@ -701,11 +702,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlyingToPosition: {x: 0, y: 0, z: 0}
-  MaxSpeed: 15
+  MaxSpeed: 18
   Acceleration: 4
   TRIGGER_DISTANCE_SQ: 4
   ExplosionEffect: {fileID: 138750, guid: 892b731dd117a480ca1e9b891fdb4b41, type: 2}
-  Damage: 5
+  Damage: 2
 --- !u!114 &11425102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockProgress: 0
-  SecondsToLock: 0.5
+  SecondsToLock: 0.01
 --- !u!114 &11466224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,6 +787,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 16
   m_Center: {x: 0, y: 0, z: 16}
+--- !u!135 &13551240
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0.72}
 --- !u!198 &19803226
 ParticleSystem:
   m_ObjectHideFlags: 1
