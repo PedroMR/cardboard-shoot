@@ -125,7 +125,11 @@ public class GameController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.J)) {
-			SpawnEnemyWave();
+			SpawnEnemyWave(Input.GetKey(KeyCode.LeftShift) ? "carrier" : null);
+		}
+
+		if (Input.GetKeyDown (KeyCode.K)) {
+			KillAllEnemies();
 		}
 
 		if (Input.GetKeyDown (KeyCode.G)) {
@@ -139,7 +143,7 @@ public class GameController : MonoBehaviour {
 //		GUILayout.Label("Gazing at: "+ (selectedObject ? selectedObject.name : "(null)"));
 //	}
 
-	void SpawnEnemyWave ()
+	void SpawnEnemyWave (string forceShip = "")
 	{
 		if (Random.value < EnemyEmptyChance)
 			return;
@@ -153,7 +157,7 @@ public class GameController : MonoBehaviour {
 		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
 		var src = Enemy;
 		
-		if (Random.value < 0.1f) {
+		if (Random.value < 0.1f || "carrier".Equals(forceShip)) {
 			src = EnemyCarrier;
 			enemiesInWave = 1;
 			distance *= 2;
@@ -186,6 +190,15 @@ public class GameController : MonoBehaviour {
 //		targetable.WasLockedOn += OnLockedEnemy;
 
 		return obj;
+	}
+
+	private void KillAllEnemies()
+	{
+		var enemies = FindObjectsOfType<PlayerTargetable>();
+		foreach(var enemy in enemies) {
+			if (enemy.WasLockedOn != null)
+				enemy.WasLockedOn(enemy);
+		}
 	}
 
 	public void OnTargetableSpawned(PlayerTargetable targetable) {
