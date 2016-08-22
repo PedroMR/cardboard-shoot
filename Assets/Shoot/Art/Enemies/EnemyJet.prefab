@@ -53,6 +53,7 @@ GameObject:
   - 114: {fileID: 11402110}
   - 114: {fileID: 11454460}
   - 114: {fileID: 11463768}
+  - 114: {fileID: 11434688}
   m_Layer: 8
   m_Name: EnemyJet
   m_TagString: Untagged
@@ -670,6 +671,34 @@ MonoBehaviour:
   spread: 0
   sourceClip: {fileID: 8300000, guid: 83ccb89e8497e4079a75e0999b8028cc, type: 3}
   sourceLoop: 1
+  sourceMute: 0
+  sourcePitch: 1
+  sourcePriority: 128
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
+--- !u!114 &11434688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bypassRoomEffects: 0
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 11.8
+  occlusionEnabled: 0
+  playOnAwake: 1
+  rolloffMode: 0
+  spread: 0
+  sourceClip: {fileID: 8300000, guid: cb61620d64d86452eba8573851217cd1, type: 3}
+  sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
   sourcePriority: 128
