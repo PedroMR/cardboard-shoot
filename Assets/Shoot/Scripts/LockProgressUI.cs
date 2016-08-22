@@ -4,6 +4,7 @@ using System.Collections;
 
 public class LockProgressUI : MonoBehaviour {
 	public Image image;
+	public Text rangeLabel;
 
 	/**
 	 * <param name="amount">from 0 to 1, inclusive</param>
@@ -14,5 +15,10 @@ public class LockProgressUI : MonoBehaviour {
 		{
 			image.fillAmount = amount;
 		}
+	}
+
+	public void SetRange(float distance)
+	{
+		rangeLabel.text = Mathf.RoundToInt(distance).ToString();
 	}
 }
