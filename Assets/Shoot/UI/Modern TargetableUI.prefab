@@ -176,7 +176,7 @@ MonoBehaviour:
   sourceLoop: 0
   sourceMute: 0
   sourcePitch: 1
-  sourcePriority: 128
+  sourcePriority: 187
   sourceVolume: 1
   sourceMaxDistance: 500
   sourceMinDistance: 0

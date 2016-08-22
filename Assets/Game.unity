@@ -8685,9 +8685,12 @@ MonoBehaviour:
   PlayerTurretHead: {fileID: 0}
   City: {fileID: 1876677439}
   GameOverInfo: {fileID: 1779860531}
+  TimeToSpawnEnemyAccel: 0.15
   EnemyMinElevation: 15
   EnemyMaxElevation: 45
   EnemyEmptyChance: 0.1
+  CarrierChanceIncreasePerWave: 0.1
+  CarrierChanceCostToSpawn: 1.5
   WAVE_ENEMY_SEPARATION: 10
   WAVE_MIN_ENEMIES: 2
   WAVE_MAX_ENEMIES: 3
@@ -14980,7 +14983,7 @@ MonoBehaviour:
   occlusionMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  quality: 2
+  quality: 1
 --- !u!1 &873104587
 GameObject:
   m_ObjectHideFlags: 1

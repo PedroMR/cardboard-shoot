@@ -18,7 +18,10 @@ public class GameController : MonoBehaviour {
 
 	private float timeUntilSpawn;
 	public FloatRange TimeToSpawnEnemy = new FloatRange(6.0f, 9.0f);
-	public float TimeToSpawnEnemyAccel = 0.15f;
+	public float TimeToSpawnEnemyAccel = 0.2f;
+	public float TimeToSpawnEnemyAccelInterval = 4.00f;
+	private float timeUntilEnemySpawnAccel;
+
 	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
 	public FloatRange EnemySpawnDelay = new FloatRange(0f, 1f);
 	public float EnemyMinElevation = 15f;
@@ -81,6 +84,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		timeUntilSpawn = 5.0f;
+		timeUntilEnemySpawnAccel = TimeToSpawnEnemyAccelInterval;
 	}
 
 	public void OnCityTargetDied(WeaponTargetable target) {
@@ -123,10 +127,15 @@ public class GameController : MonoBehaviour {
 
 	void UpdatePlayingState()
 	{
-		timeUntilSpawn -= Time.deltaTime;
-		if (timeUntilSpawn <= 0) {
+		timeUntilEnemySpawnAccel -= Time.deltaTime;
+		if (timeUntilEnemySpawnAccel <= 0) {
+			timeUntilEnemySpawnAccel += TimeToSpawnEnemyAccelInterval;
 			TimeToSpawnEnemy.min = Mathf.Max(0.5f, TimeToSpawnEnemy.min - TimeToSpawnEnemyAccel);
 			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - TimeToSpawnEnemyAccel);
+		}
+
+		timeUntilSpawn -= Time.deltaTime;
+		if (timeUntilSpawn <= 0) {
 			timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
 //			Debug.Log("Next wave in: " + timeUntilSpawn);
 			SpawnEnemyWave();
@@ -223,7 +232,9 @@ public class GameController : MonoBehaviour {
 	public void OnLockedEnemy(PlayerTargetable target) {
 		var shooter = FindShooterClosestToEnemy(target);
 		var weaponTarget = target.GetComponent<WeaponTargetable>();
-		shooter.LaunchAgainstTarget(weaponTarget);
+
+		if (shooter != null)
+			shooter.LaunchAgainstTarget(weaponTarget);
 	}
 
 	CityShooter FindShooterClosestToEnemy(PlayerTargetable target) {
