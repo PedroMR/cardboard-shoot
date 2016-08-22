@@ -56,7 +56,7 @@ public class TargetingHUD : MonoBehaviour {
 
 	public void OnLockProgress(PlayerTargetable target, float currentLock, float prevLock) 
 	{
-		float beepsPerLock = 5;
+		float beepsPerLock = Mathf.Max(1.9f, 4 * target.SecondsToLock);
 
 		if (prevLock < 1.0f) {
 			if (((int)(prevLock * beepsPerLock)) != (int)(currentLock*beepsPerLock) || prevLock == 0) {
