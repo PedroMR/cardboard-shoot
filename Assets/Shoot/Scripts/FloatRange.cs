@@ -2,7 +2,7 @@
 
 public class FloatRange
 {
-	private float min, max;
+	public float min, max;
 
 	/**
 	 * Creates random numbers between min and max (inclusive).

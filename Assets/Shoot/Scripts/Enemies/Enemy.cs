@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
 	{
 		var target = GameController.Instance.FindCityTargetClosestTo(this.transform.position);
 
-		initialDistance = Vector3.Distance(target.transform.position, this.transform.position);
+		if (target != null)
+			initialDistance = Vector3.Distance(target.transform.position, this.transform.position);
 
 		return target;
 	}
