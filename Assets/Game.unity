@@ -2925,7 +2925,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c, type: 3}
+    m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -15985,7 +15985,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c, type: 3}
+    m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -23423,13 +23423,30 @@ Prefab:
       objectReference: {fileID: 346261433}
     - target: {fileID: 166826, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_Name
-      value: Target Display 1
+      value: Target Display Y
       objectReference: {fileID: 0}
     - target: {fileID: 11409408, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c,
+      objectReference: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e,
         type: 3}
+    - target: {fileID: 11440502, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e,
+        type: 3}
+    - target: {fileID: 11440502, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
+      propertyPath: m_Text
+      value: Building Integrity
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
+      propertyPath: m_Color.g
+      value: 0.8795214
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
+      propertyPath: m_Color.b
+      value: 0.474903
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
   m_IsPrefabParent: 0
@@ -25710,7 +25727,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c, type: 3}
+    m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -26588,7 +26605,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c, type: 3}
+    m_Font: {fileID: 12800000, guid: 6bf2b47c467821641a686aa159989b5e, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -27861,44 +27878,22 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11437816, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 220158481}
     - target: {fileID: 22388320, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 372048402}
+    - target: {fileID: 11437816, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 220158481}
     - target: {fileID: 166826, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
       propertyPath: m_Name
-      value: Target Display 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_Color.r
-      value: 0.891
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_Color.g
-      value: 0.474903
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_Color.b
-      value: 0.7636232
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495404, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_Color.a
-      value: 0.791
+      value: Target Display M
       objectReference: {fileID: 0}
     - target: {fileID: 11440502, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c,
-        type: 3}
-    - target: {fileID: 11409408, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0da288d851bfdef4b87488d25470406c,
-        type: 3}
+      propertyPath: m_Text
+      value: Building Integrity
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd990578d0d2e4bcabea8ed094bc7da1, type: 2}
   m_IsPrefabParent: 0

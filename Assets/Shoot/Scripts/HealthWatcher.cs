@@ -15,7 +15,7 @@ public class HealthWatcher : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (label != null) {
-			label.text = target.Health.ToString();
+			label.text = target.Health.ToString()+"%";
 		}
 	}
 }
