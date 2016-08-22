@@ -40,7 +40,7 @@ public class TargetingHUD : MonoBehaviour {
 		if (lockProgressUI != null)
 		{
 			lockProgressUI.SetLockProgress (target.lockProgress);
-			lockProgressUI.SetRange(target.transform.position.magnitude);
+			lockProgressUI.SetRange(target.transform.position.magnitude * 10);
 		}
 
 		if (target.lockProgress >= 1.0f)
