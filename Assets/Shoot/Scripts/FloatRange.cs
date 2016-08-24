@@ -16,5 +16,12 @@ public class FloatRange
 		//TODO deterministic if needed
 		return UnityEngine.Random.Range(min, max);
 	}
+
+	/**
+	 * Returns an int value between the floored values of min and max (inclusive!)
+	 */
+	public int GetIntValue() {
+		return UnityEngine.Random.Range((int)min, (int)max+1);
+	}
 }
 

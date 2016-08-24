@@ -48,6 +48,8 @@
      <Compile Include="Assets\BitmapFontImporter\Editor\BFImporter.cs" />
      <Compile Include="Assets\BitmapFontImporter\Editor\BFMenuTool.cs" />
      <Compile Include="Assets\BitmapFontImporter\Editor\FntParse.cs" />
+     <Compile Include="Assets\Editor\ScriptableObjectFactory.cs" />
+     <Compile Include="Assets\Editor\ScriptableObjectWindow.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioListenerEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioRoomEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioSoundfieldEditor.cs" />
