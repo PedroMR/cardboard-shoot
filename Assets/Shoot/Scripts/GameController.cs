@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour {
 
 	GameState gameState;
 
+	private bool TEST_PERFORMANCE = true;
+
 
 	public static GameController Instance;
 
@@ -86,6 +88,14 @@ public class GameController : MonoBehaviour {
 
 		timeUntilSpawn = 5.0f;
 		timeUntilEnemySpawnAccel = TimeToSpawnEnemyAccelInterval;
+
+		if (TEST_PERFORMANCE) {
+			gameState = GameState.INTRO;
+
+			for (var i=0; i < 50; i++) {
+				SpawnEnemyAt(Enemy, new Vector3(i - 30f, 20f, 60f));
+			}
+		}
 	}
 
 	public void OnCityTargetDied(WeaponTargetable target) {

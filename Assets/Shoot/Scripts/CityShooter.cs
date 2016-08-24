@@ -30,7 +30,7 @@ public class CityShooter : MonoBehaviour
 
 		var sourcePosition = transform.position + offset;
 
-		var obj = (GameObject)GameObject.Instantiate(RocketPrefab, sourcePosition, Quaternion.identity);
+		var obj = CreateRocketAt(RocketPrefab, sourcePosition);
 
 		var missile = obj.GetComponent<Missile>();
 		missile.Target = target;
@@ -40,5 +40,21 @@ public class CityShooter : MonoBehaviour
 
 		return missile;
 	}
+
+	private GameObject CreateRocketAt(GameObject prefab, Vector3 sourcePosition) {
+		GameObject obj;
+
+		obj = ObjectPool.instance.GetObjectForType(prefab.name, false);
+
+		if (obj == null) {
+//			Debug.Log("Did not find missile in pool");
+			obj = (GameObject)GameObject.Instantiate(RocketPrefab);
+		}
+
+		obj.transform.position = sourcePosition;
+
+		return obj;
+	}
+
 }
 

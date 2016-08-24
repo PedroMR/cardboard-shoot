@@ -57,8 +57,13 @@ public class Missile : MonoBehaviour
 		if (deltaToTarget.sqrMagnitude < TRIGGER_DISTANCE_SQ) {
 			ReachedTarget = true;
 
-			var explosion = GameObject.Instantiate(ExplosionEffect, transform.position, transform.rotation);
-			Destroy(this.gameObject);
+			var explosionName = ExplosionEffect.name;
+			var explosion = ObjectPool.instance.GetObjectForType(explosionName, false);
+			explosion.transform.position = transform.position;
+			explosion.transform.rotation = transform.rotation;
+//			var explosion = GameObject.Instantiate(ExplosionEffect, transform.position, transform.rotation);
+//			Destroy(this.gameObject);
+			ObjectPool.instance.PoolObject(this.gameObject);
 
 			if (Target != null) {
 				Target.SufferDamage(Damage);

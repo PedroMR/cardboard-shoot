@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465968}
-  - 114: {fileID: 11470034}
+  - 114: {fileID: 11486216}
   m_Layer: 0
   m_Name: MissileExplosion
   m_TagString: Untagged
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 0.5
---- !u!114 &11470034
+--- !u!114 &11486216
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -551,11 +551,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 138750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fac21d1f093d344816942d1abce94e, type: 3}
+  m_Script: {fileID: 11500000, guid: d4e5c69ed3ff14722bdb962bba659703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TimeOut: 3
-  m_DetachChildren: 0
 --- !u!114 &11489450
 MonoBehaviour:
   m_ObjectHideFlags: 1
