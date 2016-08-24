@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour {
 
 	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
 	public FloatRange EnemySpawnDelay = new FloatRange(0f, 1f);
+	public float EnemySpawnAngleSpread = Mathf.PI / 2;
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
 	public float EnemyEmptyChance = 0.1f;
@@ -169,7 +170,8 @@ public class GameController : MonoBehaviour {
 			return;
 
 		var waveCenter = Vector3.zero;
-		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f;
+		var polar = Random.value * EnemySpawnAngleSpread - EnemySpawnAngleSpread/2 + Mathf.PI/2;
+//		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f + Mathf.PI/2;
 		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
 		var distance = EnemySpawnDistance.GetRandomValue();
 

@@ -8686,6 +8686,7 @@ MonoBehaviour:
   City: {fileID: 1876677439}
   GameOverInfo: {fileID: 1779860531}
   TimeToSpawnEnemyAccel: 0.15
+  TimeToSpawnEnemyAccelInterval: 4
   EnemyMinElevation: 15
   EnemyMaxElevation: 45
   EnemyEmptyChance: 0.1
@@ -15440,7 +15441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &892995907
 MonoBehaviour:
   m_ObjectHideFlags: 0
