@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour {
 
 	GameState gameState;
 
-	private bool TEST_PERFORMANCE = true;
+	private bool TEST_PERFORMANCE = false;
 
 
 	public static GameController Instance;

@@ -130,6 +130,8 @@ public class ObjectPool : MonoBehaviour
 				return;
 			}
 		}
+
+		Debug.Log("Can't repool " + obj.name);
 	}
 
 }
