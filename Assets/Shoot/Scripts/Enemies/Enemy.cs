@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour
 
 	public void OnPathComplete()
 	{
+//		ObjectPool.instance.PoolObject(gameObject);
 		Destroy(gameObject);
 	}
 

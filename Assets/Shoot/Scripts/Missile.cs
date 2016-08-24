@@ -28,9 +28,10 @@ public class Missile : MonoBehaviour
 		}
 	}
 
-	// Use this for initialization
-	void Start()
+	void OnEnable()
 	{
+		ReachedTarget = false;
+		speed = 0;
 	}
 
 	public void OnTargetDestroyed(WeaponTargetable target) 

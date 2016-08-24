@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 	private float timeUntilSpawn;
 	public FloatRange TimeToSpawnEnemy = new FloatRange(6.0f, 9.0f);
 	public float TimeToSpawnEnemyAccel = 0.2f;
-	public float TimeToSpawnEnemyAccelInterval = 4.00f;
+	public float TimeToSpawnEnemyAccelInterval = 6.00f;
 	private float timeUntilEnemySpawnAccel;
 
 	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
@@ -143,6 +143,7 @@ public class GameController : MonoBehaviour {
 			timeUntilEnemySpawnAccel += TimeToSpawnEnemyAccelInterval;
 			TimeToSpawnEnemy.min = Mathf.Max(0.5f, TimeToSpawnEnemy.min - TimeToSpawnEnemyAccel);
 			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - TimeToSpawnEnemyAccel);
+			EnemySpawnAngleSpread = Mathf.Min(Mathf.PI * 2, EnemySpawnAngleSpread + Mathf.PI / 64);
 		}
 
 		timeUntilSpawn -= Time.deltaTime;
@@ -174,7 +175,7 @@ public class GameController : MonoBehaviour {
 	void SpawnEnemyWave (string forceShip = "")
 	{
 		CurrentCarrierChance += CarrierChanceIncreasePerWave;
-		Debug.Log("Chance for carrier: " + CurrentCarrierChance);
+//		Debug.Log("Chance for carrier: " + CurrentCarrierChance);
 
 		if (Random.value < EnemyEmptyChance)
 			return;
@@ -191,7 +192,7 @@ public class GameController : MonoBehaviour {
 		
 		if (Random.value <= CurrentCarrierChance || "carrier".Equals(forceShip)) {
 			CurrentCarrierChance -= CarrierChanceCostToSpawn;
-			Debug.Log("Spawning carrier, chance now: " + CurrentCarrierChance);
+//			Debug.Log("Spawning carrier, chance now: " + CurrentCarrierChance);
 
 			src = EnemyCarrier;
 			enemiesInWave = 1;
