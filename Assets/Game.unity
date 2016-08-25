@@ -8743,7 +8743,7 @@ MonoBehaviour:
   EnemyMinElevation: 15
   EnemyMaxElevation: 45
   EnemyEmptyChance: 0.1
-  CarrierChanceIncreasePerWave: 0.1
+  CarrierChanceIncreasePerWave: 0
   CarrierChanceCostToSpawn: 1.5
   WAVE_ENEMY_SEPARATION: 10
   WAVE_MIN_ENEMIES: 2

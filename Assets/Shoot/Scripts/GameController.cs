@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 	public float EnemyEmptyChance = 0.1f;
 
 	private float CurrentCarrierChance = -1.0f;
-	public float CarrierChanceIncreasePerWave = 0.1f;
+	public float CarrierChanceIncreasePerWave = 0f;
 	public float CarrierChanceCostToSpawn = 1.5f;
 
 	public float WAVE_ENEMY_SEPARATION = 10f;
@@ -161,11 +161,11 @@ public class GameController : MonoBehaviour {
 		if (timeUntilSpawn <= 0) {
 			timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
 //			Debug.Log("Next wave in: " + timeUntilSpawn);
-			SpawnEnemyWave();
+			SpawnEnemyGroup();
 		}
 
 		if (Input.GetKeyDown (KeyCode.J)) {
-			SpawnEnemyWave(Input.GetKey(KeyCode.LeftShift) ? "carrier" : null);
+			SpawnEnemyGroup(Input.GetKey(KeyCode.LeftShift) ? "carrier" : null);
 		}
 
 		if (Input.GetKeyDown (KeyCode.K)) {
@@ -183,8 +183,12 @@ public class GameController : MonoBehaviour {
 //		GUILayout.Label("Gazing at: "+ (selectedObject ? selectedObject.name : "(null)"));
 //	}
 
-	void SpawnEnemyWave (string forceShip = "")
+	void SpawnEnemyGroup (string forceShip = "")
 	{
+		var currentWave = Config.Instance.GetWaveById(2);
+		var enemyGroup = Config.Instance.SelectEnemyGroupForWave(currentWave);
+
+
 		CurrentCarrierChance += CarrierChanceIncreasePerWave;
 //		Debug.Log("Chance for carrier: " + CurrentCarrierChance);
 
@@ -198,12 +202,13 @@ public class GameController : MonoBehaviour {
 		var distance = EnemySpawnDistance.GetRandomValue();
 
 
-		var enemiesInWave = Random.Range(WAVE_MIN_ENEMIES,WAVE_MAX_ENEMIES+1);
-		var src = Enemy;
+		var enemiesInWave = Random.Range(enemyGroup.Min, enemyGroup.Max+1);
+		Debug.Log("Loading prefab "+"Enemies/"+enemyGroup.Prefab);
+		var src = Resources.Load<GameObject>("Enemies/"+enemyGroup.Prefab);
 		
 		if (Random.value <= CurrentCarrierChance || "carrier".Equals(forceShip)) {
+//			Debug.Log("Spawning carrier, chance was: " + CurrentCarrierChance);
 			CurrentCarrierChance -= CarrierChanceCostToSpawn;
-//			Debug.Log("Spawning carrier, chance now: " + CurrentCarrierChance);
 
 			src = EnemyCarrier;
 			enemiesInWave = 1;

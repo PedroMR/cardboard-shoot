@@ -17,16 +17,16 @@ MonoBehaviour:
   - _ID: solo-basic
     _Min: 1
     _Max: 1
-    _Prefab: Enemy
+    _Prefab: EnemyJet
   - _ID: carrier
     _Min: 1
     _Max: 1
-    _Prefab: Carrier
+    _Prefab: EnemyCarrier
   - _ID: basic
     _Min: 2
     _Max: 3
-    _Prefab: Enemy
+    _Prefab: EnemyJet
   - _ID: squad
     _Min: 4
     _Max: 6
-    _Prefab: Enemy
+    _Prefab: EnemyJet
