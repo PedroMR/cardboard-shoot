@@ -46,7 +46,7 @@ public class Missile : MonoBehaviour
 		if (ReachedTarget)
 			return;
 
-		var targetPos = Target ? Target.transform.position : FlyingToPosition;
+		var targetPos = (Target && !followPath) ? Target.transform.position : FlyingToPosition;
 
 		if (!followPath) {
 			transform.LookAt(targetPos);
@@ -119,7 +119,7 @@ public class Missile : MonoBehaviour
 		waypoints[1] = waypoint;
 		waypoints[2] = targetPos;
 
-
+		FlyingToPosition = targetPos;
 
 		return waypoints;
 	}
