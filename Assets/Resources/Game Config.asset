@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: 
   EnemyGroups: {fileID: 11400000, guid: 2a1a532a1a9b7498babc110449a5d083, type: 2}
+  EnemyWaves: {fileID: 11400000, guid: ce78f8ee6baf64f9eb3586dc11898bb0, type: 2}

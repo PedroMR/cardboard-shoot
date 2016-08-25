@@ -183,6 +183,42 @@
  <Reference Include="Google.ProtocolBuffers">
  <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OOXML">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OOXML.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXml4Net">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXmlFormats">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.AccessControl">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.AccessControl.DLL</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Client">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Client.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Documents">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Documents.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Extensions">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Spreadsheets">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Spreadsheets.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/nunit.framework.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween">
  <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/SWS/Extensions/DOTween/DOTween.dll</HintPath>
  </Reference>
@@ -209,42 +245,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Newtonsoft.Json.dll</HintPath>
- </Reference>
- <Reference Include="Google.GData.Client">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Client.dll</HintPath>
- </Reference>
- <Reference Include="Google.GData.Spreadsheets">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Spreadsheets.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OpenXml4Net">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll</HintPath>
- </Reference>
- <Reference Include="Google.GData.Documents">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Documents.dll</HintPath>
- </Reference>
- <Reference Include="Google.GData.Extensions">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll</HintPath>
- </Reference>
- <Reference Include="NPOI">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OOXML">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OOXML.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OpenXmlFormats">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll</HintPath>
- </Reference>
- <Reference Include="Google.GData.AccessControl">
- <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.AccessControl.DLL</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

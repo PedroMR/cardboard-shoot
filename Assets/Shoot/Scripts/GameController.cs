@@ -76,6 +76,17 @@ public class GameController : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+
+		var config = Config.Instance;
+		var wave = config.GetWaveById(2);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
+
 		Score = 0;
 		GameOverInfo.SetActive(false);
 		gameState = GameState.PLAYING;

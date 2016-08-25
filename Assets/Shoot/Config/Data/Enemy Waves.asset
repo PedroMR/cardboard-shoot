@@ -30,7 +30,8 @@ MonoBehaviour:
     _GroupIDs:
     - solo-basic
     - basic
-    _GroupWeights: 1e0000001e000000
+    - carrier
+    _GroupWeights: 1e0000001e0000000a000000
     _TimeBetweenWaves:
     - 6
     - 8
