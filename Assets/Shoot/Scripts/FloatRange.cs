@@ -11,7 +11,16 @@ public class FloatRange
 		this.min = min;
 		this.max = max;
 	}
-		
+
+	public FloatRange(float[] range) {
+		this.min = range[0];
+		this.max = range[1];
+	}
+
+	public string ToString() {
+		return "["+min+","+max+"]";
+	}
+
 	public float GetRandomValue() {
 		//TODO deterministic if needed
 		return UnityEngine.Random.Range(min, max);

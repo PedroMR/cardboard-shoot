@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcda13c00cae4f4087d84a149a1c70b, type: 3}
   m_Name: GoogleDataSettings
   m_EditorClassIdentifier: 
-  RuntimePath: Assets/Shoot/Config/Runtime
-  EditorPath: Assets/Shoot/Config/Editor
+  RuntimePath: Shoot/Config/Runtime
+  EditorPath: Shoot/Config/Editor
   OAuth2Data:
     client_id: 321484970617-ubdmhbu7os327dvni4ejcf7b18r3g56g.apps.googleusercontent.com
     auth_uri: 

@@ -25,7 +25,15 @@ public class WavesData
 	public float[] TimeBetweenWaves { get {return _TimeBetweenWaves; } set { _TimeBetweenWaves = value;} }
 	
 	[SerializeField]
+	float _SpawnAcceleration;
+	public float SpawnAcceleration { get {return _SpawnAcceleration; } set { _SpawnAcceleration = value;} }
+	
+	[SerializeField]
 	float _SpawnAngleSpread;
 	public float SpawnAngleSpread { get {return _SpawnAngleSpread; } set { _SpawnAngleSpread = value;} }
+	
+	[SerializeField]
+	int _MaxGroupsSpawned;
+	public int MaxGroupsSpawned { get {return _MaxGroupsSpawned; } set { _MaxGroupsSpawned = value;} }
 	
 }

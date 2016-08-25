@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Enemy Waves Def
   m_EditorClassIdentifier: 
   templatePath: QuickSheet/GDataPlugin/Templates
-  scriptFilePath: Assets/Shoot/Config/Runtime
-  editorScriptFilePath: Assets/Shoot/Config/Editor
+  scriptFilePath: Shoot/Config/Runtime
+  editorScriptFilePath: Shoot/Config/Editor
   sheetName: Game Config - cardboard-shoot
   workSheetName: Waves
   columnHeaderList:
@@ -34,7 +34,15 @@ MonoBehaviour:
     isEnable: 0
     isArray: 1
   - type: 4
+    name: SpawnAcceleration
+    isEnable: 0
+    isArray: 0
+  - type: 4
     name: SpawnAngleSpread
+    isEnable: 0
+    isArray: 0
+  - type: 2
+    name: MaxGroupsSpawned
     isEnable: 0
     isArray: 0
   AccessCode: 

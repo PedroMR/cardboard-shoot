@@ -22,7 +22,9 @@ MonoBehaviour:
     _TimeBetweenWaves:
     - 6
     - 8
-    _SpawnAngleSpread: 90
+    _SpawnAcceleration: 0.02
+    _SpawnAngleSpread: 80
+    _MaxGroupsSpawned: 10
   - _Wave: 2
     _GroupIDs:
     - solo-basic
@@ -32,4 +34,6 @@ MonoBehaviour:
     _TimeBetweenWaves:
     - 6
     - 8
+    _SpawnAcceleration: 0.02
     _SpawnAngleSpread: 100
+    _MaxGroupsSpawned: 10

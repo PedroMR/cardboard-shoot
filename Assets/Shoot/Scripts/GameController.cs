@@ -17,26 +17,16 @@ public class GameController : MonoBehaviour {
 	public GameObject GameOverInfo;
 
 	private float timeUntilSpawn;
-	public FloatRange TimeToSpawnEnemy = new FloatRange(6.0f, 9.0f);
-	public float TimeToSpawnEnemyAccel = 0.2f;
-	public float TimeToSpawnEnemyAccelInterval = 6.00f;
-	private float timeUntilEnemySpawnAccel;
+	private FloatRange TimeToSpawnEnemy;
 
-	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
 	public FloatRange EnemySpawnDelay = new FloatRange(0f, 1f);
-	public float EnemyMinElevation = 15f;
-	public float EnemyMaxElevation = 45f;
-	public float EnemyEmptyChance = 0.1f;
 
-	private float CurrentCarrierChance = -1.0f;
-	public float CarrierChanceIncreasePerWave = 0f;
-	public float CarrierChanceCostToSpawn = 1.5f;
-
-	public float WAVE_ENEMY_SEPARATION = 10f;
-
-	public int WAVE_MIN_ENEMIES = 2, WAVE_MAX_ENEMIES = 3;
+	public float GROUP_ENEMY_SEPARATION = 10f;
 
 	private int numTargetsAlive;
+
+	private int currentWaveId = 1;
+	private WavesData CurrentWave;
 
 	public delegate void ScoreChange(int newScore);
 	public ScoreChange OnScoreChange;
@@ -76,18 +66,10 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		var config = Config.Instance;
-		var wave = config.GetWaveById(2);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-		Debug.Log(config.SelectEnemyGroupForWave(wave).ID);
-
 		Score = 0;
 		GameOverInfo.SetActive(false);
+
+		SetWave(1);
 		gameState = GameState.PLAYING;
 
 		var targets = City.GetComponentsInChildren<CityTarget>();
@@ -97,7 +79,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		timeUntilSpawn = 5.0f;
-		timeUntilEnemySpawnAccel = TimeToSpawnEnemyAccelInterval;
 
 		if (TEST_PERFORMANCE) {
 			gameState = GameState.INTRO;
@@ -106,6 +87,14 @@ public class GameController : MonoBehaviour {
 				SpawnEnemyAt(Enemy, new Vector3(i - 30f, 20f, 60f));
 			}
 		}
+	}
+
+	private void SetWave(int waveId) {
+		var config = Config.Instance;
+
+		currentWaveId = waveId;
+		CurrentWave = config.GetWaveById(currentWaveId);
+		TimeToSpawnEnemy = new FloatRange(CurrentWave.TimeBetweenWaves);
 	}
 
 	public void OnCityTargetDied(WeaponTargetable target) {
@@ -148,17 +137,16 @@ public class GameController : MonoBehaviour {
 
 	void UpdatePlayingState()
 	{
-		timeUntilEnemySpawnAccel -= Time.deltaTime;
-		if (timeUntilEnemySpawnAccel <= 0) {
-			timeUntilEnemySpawnAccel += TimeToSpawnEnemyAccelInterval;
-			TimeToSpawnEnemy.min = Mathf.Max(0.5f, TimeToSpawnEnemy.min - TimeToSpawnEnemyAccel);
-			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - TimeToSpawnEnemyAccel);
+		var spawnAccelerationAmount = CurrentWave.SpawnAcceleration * Time.deltaTime;
+		if (spawnAccelerationAmount != 0) {
+			TimeToSpawnEnemy.min = Mathf.Max(0.5f, TimeToSpawnEnemy.min - spawnAccelerationAmount);
+			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - spawnAccelerationAmount);
 		}
 
 		timeUntilSpawn -= Time.deltaTime;
 		if (timeUntilSpawn <= 0) {
 			timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
-//			Debug.Log("Next wave in: " + timeUntilSpawn);
+			Debug.Log("Next wave in: " + timeUntilSpawn+" out of "+TimeToSpawnEnemy.ToString());
 			SpawnEnemyGroup();
 		}
 
@@ -175,22 +163,15 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-//	void OnGUI()
-//	{
-//		var selectedObject = EventSystem.current.currentSelectedGameObject;
-//		GUILayout.Label("Gazing at: "+ (selectedObject ? selectedObject.name : "(null)"));
-//	}
-
 	void SpawnEnemyGroup (string debugForceGroup = null)
 	{
-		var currentWave = Config.Instance.GetWaveById(2);
-		var enemyGroup = Config.Instance.SelectEnemyGroupForWave(currentWave);
+		var enemyGroup = Config.Instance.SelectEnemyGroupForWave(CurrentWave);
 
 		if (debugForceGroup != null) {
 			enemyGroup = Config.Instance.GetGroupById(debugForceGroup);
 		}
 
-		var angleSpreadRad = Mathf.Deg2Rad * currentWave.SpawnAngleSpread;
+		var angleSpreadRad = Mathf.Deg2Rad * CurrentWave.SpawnAngleSpread;
 		var elevation = Mathf.Deg2Rad * FloatRange.GetValue(enemyGroup.SpawnElevation);
 		var polar = Random.value * angleSpreadRad - angleSpreadRad/2 + Mathf.PI/2; // last add is to rotate to Z axis being forward (match VR center)
 		var distance = FloatRange.GetValue(enemyGroup.SpawnDistance);
@@ -203,12 +184,12 @@ public class GameController : MonoBehaviour {
 
 		var src = Resources.Load<GameObject>("Enemies/"+enemyGroup.Prefab);
 		if (src == null) {
-			Debug.LogWarning("Wave "+currentWave.Wave+": Error loading prefab "+"Enemies/"+enemyGroup.Prefab+" for group "+enemyGroup.ID);
+			Debug.LogWarning("Wave "+CurrentWave.Wave+": Error loading prefab "+"Enemies/"+enemyGroup.Prefab+" for group "+enemyGroup.ID);
 			return;
 		}
 
 		for (var i=0; i < enemiesInWave; i++) {
-			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
+			var delta = Random.onUnitSphere * GROUP_ENEMY_SEPARATION;
 			var pos = groupCenter + delta;
 			StartCoroutine(SpawnEnemyAfterDelayAt(src, pos, EnemySpawnDelay.GetRandomValue()));
 		}
