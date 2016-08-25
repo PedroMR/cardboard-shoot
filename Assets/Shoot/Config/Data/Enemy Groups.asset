@@ -18,15 +18,39 @@ MonoBehaviour:
     _Min: 1
     _Max: 1
     _Prefab: EnemyJet
+    _SpawnElevation:
+    - 20
+    - 40
+    _SpawnDistance:
+    - 50
+    - 80
   - _ID: carrier
     _Min: 1
     _Max: 1
     _Prefab: EnemyCarrier
+    _SpawnElevation:
+    - 35
+    - 50
+    _SpawnDistance:
+    - 120
+    - 160
   - _ID: basic
     _Min: 2
     _Max: 3
     _Prefab: EnemyJet
+    _SpawnElevation:
+    - 15
+    - 45
+    _SpawnDistance:
+    - 50
+    - 80
   - _ID: squad
     _Min: 4
     _Max: 6
     _Prefab: EnemyJet
+    _SpawnElevation:
+    - 20
+    - 40
+    _SpawnDistance:
+    - 100
+    - 120

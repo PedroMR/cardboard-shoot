@@ -24,7 +24,6 @@ public class GameController : MonoBehaviour {
 
 	public FloatRange EnemySpawnDistance = new FloatRange(50f, 80f);
 	public FloatRange EnemySpawnDelay = new FloatRange(0f, 1f);
-	public float EnemySpawnAngleSpread = Mathf.PI / 2;
 	public float EnemyMinElevation = 15f;
 	public float EnemyMaxElevation = 45f;
 	public float EnemyEmptyChance = 0.1f;
@@ -154,7 +153,6 @@ public class GameController : MonoBehaviour {
 			timeUntilEnemySpawnAccel += TimeToSpawnEnemyAccelInterval;
 			TimeToSpawnEnemy.min = Mathf.Max(0.5f, TimeToSpawnEnemy.min - TimeToSpawnEnemyAccel);
 			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - TimeToSpawnEnemyAccel);
-			EnemySpawnAngleSpread = Mathf.Min(Mathf.PI * 2, EnemySpawnAngleSpread + Mathf.PI / 64);
 		}
 
 		timeUntilSpawn -= Time.deltaTime;
@@ -183,43 +181,35 @@ public class GameController : MonoBehaviour {
 //		GUILayout.Label("Gazing at: "+ (selectedObject ? selectedObject.name : "(null)"));
 //	}
 
-	void SpawnEnemyGroup (string forceShip = "")
+	void SpawnEnemyGroup (string debugForceGroup = null)
 	{
 		var currentWave = Config.Instance.GetWaveById(2);
 		var enemyGroup = Config.Instance.SelectEnemyGroupForWave(currentWave);
 
+		if (debugForceGroup != null) {
+			enemyGroup = Config.Instance.GetGroupById(debugForceGroup);
+		}
 
-		CurrentCarrierChance += CarrierChanceIncreasePerWave;
-//		Debug.Log("Chance for carrier: " + CurrentCarrierChance);
-
-		if (Random.value < EnemyEmptyChance)
-			return;
-
-		var waveCenter = Vector3.zero;
-		var polar = Random.value * EnemySpawnAngleSpread - EnemySpawnAngleSpread/2 + Mathf.PI/2;
-//		var polar = Random.value * Mathf.PI * 1.2f - Mathf.PI * 0.6f + Mathf.PI/2;
-		var elevation = Mathf.Deg2Rad * Random.Range(EnemyMinElevation, EnemyMaxElevation);
-		var distance = EnemySpawnDistance.GetRandomValue();
+		var angleSpreadRad = Mathf.Deg2Rad * currentWave.SpawnAngleSpread;
+		var elevation = Mathf.Deg2Rad * FloatRange.GetValue(enemyGroup.SpawnElevation);
+		var polar = Random.value * angleSpreadRad - angleSpreadRad/2 + Mathf.PI/2; // last add is to rotate to Z axis being forward (match VR center)
+		var distance = FloatRange.GetValue(enemyGroup.SpawnDistance);
+		Vector3 groupCenter;
+		Util.SphericalToCartesian(distance, polar, elevation, out groupCenter);
+		Debug.Log("Spawning Group " + enemyGroup.ID + " at distance " + distance + " elev " + elevation*Mathf.Rad2Deg + " angle " + polar*Mathf.Rad2Deg);
 
 
 		var enemiesInWave = Random.Range(enemyGroup.Min, enemyGroup.Max+1);
-		Debug.Log("Loading prefab "+"Enemies/"+enemyGroup.Prefab);
+
 		var src = Resources.Load<GameObject>("Enemies/"+enemyGroup.Prefab);
-		
-		if (Random.value <= CurrentCarrierChance || "carrier".Equals(forceShip)) {
-//			Debug.Log("Spawning carrier, chance was: " + CurrentCarrierChance);
-			CurrentCarrierChance -= CarrierChanceCostToSpawn;
-
-			src = EnemyCarrier;
-			enemiesInWave = 1;
-			distance *= 2;
+		if (src == null) {
+			Debug.LogWarning("Wave "+currentWave.Wave+": Error loading prefab "+"Enemies/"+enemyGroup.Prefab+" for group "+enemyGroup.ID);
+			return;
 		}
-
-		Util.SphericalToCartesian(distance, polar, elevation, out waveCenter);
 
 		for (var i=0; i < enemiesInWave; i++) {
 			var delta = Random.onUnitSphere * WAVE_ENEMY_SEPARATION;
-			var pos = waveCenter + delta;
+			var pos = groupCenter + delta;
 			StartCoroutine(SpawnEnemyAfterDelayAt(src, pos, EnemySpawnDelay.GetRandomValue()));
 		}
 	}

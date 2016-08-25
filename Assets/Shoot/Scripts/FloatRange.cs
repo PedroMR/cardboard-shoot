@@ -23,5 +23,9 @@ public class FloatRange
 	public int GetIntValue() {
 		return UnityEngine.Random.Range((int)min, (int)max+1);
 	}
+
+	public static float GetValue(float[] range) {
+		return Random.Range(range[0], range[1]);
+	}
 }
 

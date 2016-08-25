@@ -24,4 +24,12 @@ public class GroupsData
 	string _Prefab;
 	public string Prefab { get {return _Prefab; } set { _Prefab = value;} }
 	
+	[SerializeField]
+	float[] _SpawnElevation = new float[0];
+	public float[] SpawnElevation { get {return _SpawnElevation; } set { _SpawnElevation = value;} }
+	
+	[SerializeField]
+	float[] _SpawnDistance = new float[0];
+	public float[] SpawnDistance { get {return _SpawnDistance; } set { _SpawnDistance = value;} }
+	
 }

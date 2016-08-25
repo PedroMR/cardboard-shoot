@@ -33,4 +33,12 @@ MonoBehaviour:
     name: Prefab
     isEnable: 0
     isArray: 0
+  - type: 4
+    name: SpawnElevation
+    isEnable: 0
+    isArray: 1
+  - type: 4
+    name: SpawnDistance
+    isEnable: 0
+    isArray: 1
   AccessCode: 

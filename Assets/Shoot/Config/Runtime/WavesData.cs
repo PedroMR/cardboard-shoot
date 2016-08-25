@@ -28,8 +28,4 @@ public class WavesData
 	float _SpawnAngleSpread;
 	public float SpawnAngleSpread { get {return _SpawnAngleSpread; } set { _SpawnAngleSpread = value;} }
 	
-	[SerializeField]
-	float[] _SpawnElevation = new float[0];
-	public float[] SpawnElevation { get {return _SpawnElevation; } set { _SpawnElevation = value;} }
-	
 }
