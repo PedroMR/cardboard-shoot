@@ -58,6 +58,51 @@
      <Compile Include="Assets\GoogleVR\Legacy\Editor\GvrMenu.cs" />
      <Compile Include="Assets\GoogleVR\Legacy\Editor\GvrViewerEditor.cs" />
      <Compile Include="Assets\GoogleVR\Legacy\Editor\StereoControllerEditor.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\BaseEditor.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\BaseMachine.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\BaseMachineEditor.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\CustomAssetUtility.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\ExposeProperties.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\GUIHelper.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\ScriptGenerator.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\ScriptPrescription.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\Util\Cloner.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\Util\CsvParser.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\Util\Singleton.cs" />
+     <Compile Include="Assets\QuickSheet\Editor\Util\Util.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\BaseExcelEditor.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelMachine.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelMachineEditor.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelQuery.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelSettings.cs" />
+     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelSettingsEditor.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\BaseGoogleEditor.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\ITableExtensions.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\Evaluator.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\ExpressionVisitor.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\GDataDBQueryProvider.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\OrderTranslator.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\Query.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\QueryProvider.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\QueryTranslator.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\TypeSystem.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB.Linq\Impl\WhereTranslator.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\DatabaseClient.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\IDatabase.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\IDatabaseClient.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\IRow.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\ITable.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Impl\Database.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Impl\GDataDBRequestFactory.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Impl\Row.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Impl\Serializer.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Impl\Table.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Order.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\GDataDB\Query.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GoogleDataSettings.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GoogleDataSettingsEditor.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GoogleMachine.cs" />
+     <Compile Include="Assets\QuickSheet\GDataPlugin\Editor\GoogleMachineEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\AboutSWSEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\BezierPathEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\CreateWPManager.cs" />
@@ -67,23 +112,44 @@
      <Compile Include="Assets\SWS\Scripts\Editor\moveEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\navMoveEditor.cs" />
      <Compile Include="Assets\SWS\Scripts\Editor\splineMoveEditor.cs" />
+     <Compile Include="Assets\Shoot\Config\Editor\GroupsAssetCreator.cs" />
+     <Compile Include="Assets\Shoot\Config\Editor\GroupsEditor.cs" />
+     <Compile Include="Assets\Shoot\Config\Editor\WavesAssetCreator.cs" />
+     <Compile Include="Assets\Shoot\Config\Editor\WavesEditor.cs" />
      <Compile Include="Assets\Shoot\Editor\CityscapeEditor.cs" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\SWS\README.txt" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween43.xml" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Editor\Google\Newtonsoft.Json.xml" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Editor\Google\Google.GData.license.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Templates\DataClass.txt" />
      <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Editor\Library\NPOI.2.1.1.txt" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween46.xml" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Templates\ScriptableObjectEditorClass.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Editor\Google\license.txt" />
      <None Include="Assets\BitmapFontImporter\Examples\Font1\font1.fnt" />
      <None Include="Assets\SWS\Extensions\DOTween\readme.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Templates\Property.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Editor\Google\nunit.license.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\BitmapFontImporter\Examples\Font2\font2.fnt" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Templates\Property.txt" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Templates\PostProcessor.txt" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Templates\ScriptableObjectClass.txt" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Templates\ScriptableObjectEditorClass.txt" />
      <None Include="Assets\SWS\Changelog.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Editor\GDataDB\license.txt" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Editor\Library\Release Notes.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Templates\ScriptableObjectClass.txt" />
+     <None Include="Assets\QuickSheet\GDataPlugin\Templates\AssetFileClass.txt" />
      <None Include="Assets\GoogleVR\Resources\UI\GvrReticleShader.shader" />
+     <None Include="Assets\QuickSheet\ExcelPlugin\Templates\DataClass.txt" />
      <None Include="Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
      <None Include="Assets\SWS\Extensions\DOTween\DOTween50.xml" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
@@ -143,6 +209,42 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Client">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Client.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Spreadsheets">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Spreadsheets.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXml4Net">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXml4Net.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Documents">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Documents.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.Extensions">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OOXML">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OOXML.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXmlFormats">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/ExcelPlugin/Editor/Library/NPOI.OpenXmlFormats.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.GData.AccessControl">
+ <HintPath>/Users/pedro/Code/Personal/cardboard-shoot/Assets/QuickSheet/GDataPlugin/Editor/Google/Google.GData.AccessControl.DLL</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
