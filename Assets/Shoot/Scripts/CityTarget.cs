@@ -34,9 +34,7 @@ public class CityTarget : MonoBehaviour
 	public void OnSufferedLethalDamage(WeaponTargetable which)
 	{
 
-		var original = transform.parent.position;
 		transform.parent.DOShakePosition(4, (Vector3.right + Vector3.forward) * 0.3f);
 		transform.parent.DOMoveY(-15, 5);
-//		transform.parent.DOMoveX(original., 5);
 	}
 }

@@ -25,8 +25,10 @@ public class GameController : MonoBehaviour {
 
 	private int numTargetsAlive;
 
+
 	private int currentWaveId = 1;
 	private WavesData CurrentWave;
+	private int groupsLeftToSpawn;
 
 	public delegate void ScoreChange(int newScore);
 	public ScoreChange OnScoreChange;
@@ -92,9 +94,16 @@ public class GameController : MonoBehaviour {
 	private void SetWave(int waveId) {
 		var config = Config.Instance;
 
+		var newWave = config.GetWaveById(waveId);
+		if (newWave != null) {
+			CurrentWave = newWave;
+		} else {
+			Debug.Log("No wave " + waveId + "  -- staying on our wave config "+CurrentWave.Wave);
+		}
 		currentWaveId = waveId;
-		CurrentWave = config.GetWaveById(currentWaveId);
+
 		TimeToSpawnEnemy = new FloatRange(CurrentWave.TimeBetweenWaves);
+		groupsLeftToSpawn = CurrentWave.MaxGroupsSpawned;
 	}
 
 	public void OnCityTargetDied(WeaponTargetable target) {
@@ -143,11 +152,20 @@ public class GameController : MonoBehaviour {
 			TimeToSpawnEnemy.max = Mathf.Max(1f, TimeToSpawnEnemy.max - spawnAccelerationAmount);
 		}
 
-		timeUntilSpawn -= Time.deltaTime;
-		if (timeUntilSpawn <= 0) {
-			timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
-			Debug.Log("Next wave in: " + timeUntilSpawn+" out of "+TimeToSpawnEnemy.ToString());
-			SpawnEnemyGroup();
+		if (groupsLeftToSpawn > 0) {
+			timeUntilSpawn -= Time.deltaTime;
+			if (timeUntilSpawn <= 0) {
+				timeUntilSpawn = TimeToSpawnEnemy.GetRandomValue();
+//				Debug.Log("Next wave in: " + timeUntilSpawn+" out of "+TimeToSpawnEnemy.ToString());
+				SpawnEnemyGroup();
+			}
+		} else {
+			var allEnemies = FindAllEnemies();
+			var enemiesLeft = allEnemies != null ? allEnemies.Length : 0;
+//			Debug.Log("Enemies left: " + enemiesLeft);
+			if (enemiesLeft == 0) {
+				SetWave(currentWaveId + 1);
+			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.J)) {
@@ -171,13 +189,15 @@ public class GameController : MonoBehaviour {
 			enemyGroup = Config.Instance.GetGroupById(debugForceGroup);
 		}
 
+		groupsLeftToSpawn--;
+
 		var angleSpreadRad = Mathf.Deg2Rad * CurrentWave.SpawnAngleSpread;
 		var elevation = Mathf.Deg2Rad * FloatRange.GetValue(enemyGroup.SpawnElevation);
 		var polar = Random.value * angleSpreadRad - angleSpreadRad/2 + Mathf.PI/2; // last add is to rotate to Z axis being forward (match VR center)
 		var distance = FloatRange.GetValue(enemyGroup.SpawnDistance);
 		Vector3 groupCenter;
 		Util.SphericalToCartesian(distance, polar, elevation, out groupCenter);
-		Debug.Log("Spawning Group " + enemyGroup.ID + " at distance " + distance + " elev " + elevation*Mathf.Rad2Deg + " angle " + polar*Mathf.Rad2Deg);
+//		Debug.Log("Spawning Group " + enemyGroup.ID + " at distance " + distance + " elev " + elevation*Mathf.Rad2Deg + " angle " + polar*Mathf.Rad2Deg);
 
 
 		var enemiesInWave = Random.Range(enemyGroup.Min, enemyGroup.Max+1);
@@ -217,11 +237,16 @@ public class GameController : MonoBehaviour {
 
 	private void KillAllEnemies()
 	{
-		var enemies = FindObjectsOfType<PlayerTargetable>();
+		var enemies = FindAllEnemies();
 		foreach(var enemy in enemies) {
 			if (enemy.WasLockedOn != null)
 				enemy.WasLockedOn(enemy);
 		}
+	}
+
+	private PlayerTargetable[] FindAllEnemies()
+	{
+		return FindObjectsOfType<PlayerTargetable>();
 	}
 
 	public void OnTargetableSpawned(PlayerTargetable targetable) {
