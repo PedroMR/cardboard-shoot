@@ -9,27 +9,27 @@ using System.Collections;
 public class WavesData
 {
 	[SerializeField]
-	int wave;
-	public int Wave { get {return wave; } set { wave = value;} }
+	int _Wave;
+	public int Wave { get {return _Wave; } set { _Wave = value;} }
 	
 	[SerializeField]
-	string[] groupids = new string[0];
-	public string[] Groupids { get {return groupids; } set { groupids = value;} }
+	string[] _GroupIDs = new string[0];
+	public string[] GroupIDs { get {return _GroupIDs; } set { _GroupIDs = value;} }
 	
 	[SerializeField]
-	int[] groupweights = new int[0];
-	public int[] Groupweights { get {return groupweights; } set { groupweights = value;} }
+	int[] _GroupWeights = new int[0];
+	public int[] GroupWeights { get {return _GroupWeights; } set { _GroupWeights = value;} }
 	
 	[SerializeField]
-	float[] timebetweenwaves = new float[0];
-	public float[] Timebetweenwaves { get {return timebetweenwaves; } set { timebetweenwaves = value;} }
+	float[] _TimeBetweenWaves = new float[0];
+	public float[] TimeBetweenWaves { get {return _TimeBetweenWaves; } set { _TimeBetweenWaves = value;} }
 	
 	[SerializeField]
-	float spawnanglespread;
-	public float Spawnanglespread { get {return spawnanglespread; } set { spawnanglespread = value;} }
+	float _SpawnAngleSpread;
+	public float SpawnAngleSpread { get {return _SpawnAngleSpread; } set { _SpawnAngleSpread = value;} }
 	
 	[SerializeField]
-	float[] spawnelevation = new float[0];
-	public float[] Spawnelevation { get {return spawnelevation; } set { spawnelevation = value;} }
+	float[] _SpawnElevation = new float[0];
+	public float[] SpawnElevation { get {return _SpawnElevation; } set { _SpawnElevation = value;} }
 	
 }

@@ -14,27 +14,27 @@ MonoBehaviour:
   SheetName: Game Config - cardboard-shoot
   WorksheetName: Waves
   dataArray:
-  - wave: 1
-    groupids:
+  - _Wave: 1
+    _GroupIDs:
     - solo-basic
     - basic
-    groupweights: 320000000a000000
-    timebetweenwaves:
+    _GroupWeights: 320000000a000000
+    _TimeBetweenWaves:
     - 6
     - 8
-    spawnanglespread: 90
-    spawnelevation:
+    _SpawnAngleSpread: 90
+    _SpawnElevation:
     - 50
     - 60
-  - wave: 2
-    groupids:
+  - _Wave: 2
+    _GroupIDs:
     - solo-basic
     - basic
-    groupweights: 1e0000001e000000
-    timebetweenwaves:
+    _GroupWeights: 1e0000001e000000
+    _TimeBetweenWaves:
     - 6
     - 8
-    spawnanglespread: 100
-    spawnelevation:
+    _SpawnAngleSpread: 100
+    _SpawnElevation:
     - 50
     - 60

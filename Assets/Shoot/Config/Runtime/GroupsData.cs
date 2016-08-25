@@ -9,19 +9,19 @@ using System.Collections;
 public class GroupsData
 {
 	[SerializeField]
-	string id;
-	public string ID { get {return id; } set { id = value;} }
+	string _ID;
+	public string ID { get {return _ID; } set { _ID = value;} }
 	
 	[SerializeField]
-	int min;
-	public int Min { get {return min; } set { min = value;} }
+	int _Min;
+	public int Min { get {return _Min; } set { _Min = value;} }
 	
 	[SerializeField]
-	int max;
-	public int Max { get {return max; } set { max = value;} }
+	int _Max;
+	public int Max { get {return _Max; } set { _Max = value;} }
 	
 	[SerializeField]
-	string prefab;
-	public string Prefab { get {return prefab; } set { prefab = value;} }
+	string _Prefab;
+	public string Prefab { get {return _Prefab; } set { _Prefab = value;} }
 	
 }

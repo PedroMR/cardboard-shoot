@@ -14,19 +14,19 @@ MonoBehaviour:
   SheetName: Game Config - cardboard-shoot
   WorksheetName: Groups
   dataArray:
-  - id: solo-basic
-    min: 1
-    max: 1
-    prefab: Enemy
-  - id: carrier
-    min: 1
-    max: 1
-    prefab: Carrier
-  - id: basic
-    min: 2
-    max: 3
-    prefab: Enemy
-  - id: squad
-    min: 4
-    max: 6
-    prefab: Enemy
+  - _ID: solo-basic
+    _Min: 1
+    _Max: 1
+    _Prefab: Enemy
+  - _ID: carrier
+    _Min: 1
+    _Max: 1
+    _Prefab: Carrier
+  - _ID: basic
+    _Min: 2
+    _Max: 3
+    _Prefab: Enemy
+  - _ID: squad
+    _Min: 4
+    _Max: 6
+    _Prefab: Enemy
