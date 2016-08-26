@@ -22,10 +22,21 @@ MonoBehaviour:
     _TimeBetweenWaves:
     - 6
     - 8
-    _SpawnAcceleration: 0.02
+    _SpawnAcceleration: 0.01
     _SpawnAngleSpread: 80
     _MaxGroupsSpawned: 10
   - _Wave: 2
+    _GroupIDs:
+    - solo-basic
+    - basic
+    _GroupWeights: 1e0000001e000000
+    _TimeBetweenWaves:
+    - 5
+    - 7
+    _SpawnAcceleration: 0.02
+    _SpawnAngleSpread: 90
+    _MaxGroupsSpawned: 10
+  - _Wave: 3
     _GroupIDs:
     - solo-basic
     - basic
@@ -37,3 +48,34 @@ MonoBehaviour:
     _SpawnAcceleration: 0.02
     _SpawnAngleSpread: 100
     _MaxGroupsSpawned: 10
+  - _Wave: 4
+    _GroupIDs:
+    - basic
+    - carrier
+    _GroupWeights: 320000000a000000
+    _TimeBetweenWaves:
+    - 6
+    - 8
+    _SpawnAcceleration: 0.02
+    _SpawnAngleSpread: 100
+    _MaxGroupsSpawned: 10
+  - _Wave: 5
+    _GroupIDs:
+    - solo-basic
+    _GroupWeights: 0a000000
+    _TimeBetweenWaves:
+    - 4
+    - 4
+    _SpawnAcceleration: 0.05
+    _SpawnAngleSpread: 120
+    _MaxGroupsSpawned: 40
+  - _Wave: 6
+    _GroupIDs:
+    - squad
+    _GroupWeights: 0a000000
+    _TimeBetweenWaves:
+    - 8
+    - 8
+    _SpawnAcceleration: 0
+    _SpawnAngleSpread: 100
+    _MaxGroupsSpawned: 5

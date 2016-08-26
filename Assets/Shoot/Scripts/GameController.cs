@@ -97,6 +97,7 @@ public class GameController : MonoBehaviour {
 		var newWave = config.GetWaveById(waveId);
 		if (newWave != null) {
 			CurrentWave = newWave;
+			Debug.Log("Wave "+CurrentWave.Wave+" begins.");
 		} else {
 			Debug.Log("No wave " + waveId + "  -- staying on our wave config "+CurrentWave.Wave);
 		}
@@ -170,6 +171,10 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.J)) {
 			SpawnEnemyGroup(Input.GetKey(KeyCode.LeftShift) ? "carrier" : null);
+		}
+
+		if (Input.GetKeyDown(KeyCode.W)) {
+			SetWave(currentWaveId + 1);
 		}
 
 		if (Input.GetKeyDown (KeyCode.K)) {
