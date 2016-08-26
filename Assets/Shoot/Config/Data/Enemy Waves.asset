@@ -64,9 +64,8 @@ MonoBehaviour:
     - solo-basic
     _GroupWeights: 0a000000
     _TimeBetweenWaves:
-    - 4
-    - 4
-    _SpawnAcceleration: 0.05
+    - 3
+    _SpawnAcceleration: 0.03
     _SpawnAngleSpread: 120
     _MaxGroupsSpawned: 40
   - _Wave: 6
@@ -75,7 +74,6 @@ MonoBehaviour:
     _GroupWeights: 0a000000
     _TimeBetweenWaves:
     - 8
-    - 8
     _SpawnAcceleration: 0
     _SpawnAngleSpread: 100
-    _MaxGroupsSpawned: 5
+    _MaxGroupsSpawned: 8

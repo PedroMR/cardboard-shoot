@@ -13,8 +13,10 @@ public class FloatRange
 	}
 
 	public FloatRange(float[] range) {
-		this.min = range[0];
-		this.max = range[1];
+		this.max = this.min = range[0];
+
+		if (range.Length > 1)
+			this.max = range[1];
 	}
 
 	override public string ToString() {
