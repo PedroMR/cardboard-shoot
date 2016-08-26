@@ -17,7 +17,7 @@ public class FloatRange
 		this.max = range[1];
 	}
 
-	public string ToString() {
+	override public string ToString() {
 		return "["+min+","+max+"]";
 	}
 
