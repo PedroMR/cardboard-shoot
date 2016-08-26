@@ -25,7 +25,6 @@ public class GameController : MonoBehaviour {
 
 	private int numTargetsAlive;
 
-
 	private int currentWaveId = 1;
 	private WavesData CurrentWave;
 	private int groupsLeftToSpawn;
@@ -41,6 +40,13 @@ public class GameController : MonoBehaviour {
 			if (OnScoreChange != null)
 				OnScoreChange(_score); 
 		}
+	}
+
+	public int WarpsLeft {
+		get { return groupsLeftToSpawn; }
+	}
+	public int CurrentWaveNumber {
+		get { return currentWaveId; }
 	}
 
 	enum GameState {

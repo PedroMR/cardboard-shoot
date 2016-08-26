@@ -111,6 +111,7 @@
      <Compile Include="Assets\Shoot\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Shoot\Scripts\FloatRange.cs" />
      <Compile Include="Assets\Shoot\Scripts\GameController.cs" />
+     <Compile Include="Assets\Shoot\Scripts\GameStateWatcher.cs" />
      <Compile Include="Assets\Shoot\Scripts\HealthWatcher.cs" />
      <Compile Include="Assets\Shoot\Scripts\LevelConfig.cs" />
      <Compile Include="Assets\Shoot\Scripts\LockProgressUI.cs" />
