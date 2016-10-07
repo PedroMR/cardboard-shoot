@@ -6,7 +6,7 @@ public class VRPreferences : MonoBehaviour
 {
 	public static bool VRMode = false;
 
-	public static GvrViewer.DistortionCorrectionMethod DistortionCorrection = GvrViewer.DistortionCorrectionMethod.Unity;
+	public static bool DistortionCorrection = true;
 	public static bool DirectRender = true;
 
 	public static VRPreferences Instance;
@@ -21,14 +21,14 @@ public class VRPreferences : MonoBehaviour
 	public void RestoreSettings()
 	{
 		GvrViewer.Instance.VRModeEnabled = VRMode;
-		GvrViewer.Instance.DistortionCorrection = DistortionCorrection;
+		GvrViewer.Instance.DistortionCorrectionEnabled = DistortionCorrection;
 		GvrViewer.Controller.directRender = DirectRender;
 	}
 
 	public void SaveSettings()
 	{
 		VRMode = GvrViewer.Instance.VRModeEnabled;
-		DistortionCorrection = GvrViewer.Instance.DistortionCorrection;
+		DistortionCorrection = GvrViewer.Instance.DistortionCorrectionEnabled;
 		DirectRender = GvrViewer.Controller.directRender;
 	}
 	
@@ -39,18 +39,7 @@ public class VRPreferences : MonoBehaviour
 	}
 
 	public void ToggleDistortionCorrection() {
-		switch(GvrViewer.Instance.DistortionCorrection) {
-			case GvrViewer.DistortionCorrectionMethod.Unity:
-				GvrViewer.Instance.DistortionCorrection = GvrViewer.DistortionCorrectionMethod.Native;
-				break;
-			case GvrViewer.DistortionCorrectionMethod.Native:
-				GvrViewer.Instance.DistortionCorrection = GvrViewer.DistortionCorrectionMethod.None;
-				break;
-			case GvrViewer.DistortionCorrectionMethod.None:
-			default:
-				GvrViewer.Instance.DistortionCorrection = GvrViewer.DistortionCorrectionMethod.Unity;
-				break;
-		}
+		GvrViewer.Instance.DistortionCorrectionEnabled = !GvrViewer.Instance.DistortionCorrectionEnabled;
 	}
 
 	public void ToggleDirectRender() {
