@@ -67,12 +67,9 @@ public class GameController : MonoBehaviour {
 		Instance = this;
 	}
 
-	void Awake() {
-		GvrViewer.Instance.Recenter();
-
-	}
 	// Use this for initialization
 	void Start () {
+		GvrViewer.Instance.Recenter();
 
 		Score = 0;
 		GameOverInfo.SetActive(false);

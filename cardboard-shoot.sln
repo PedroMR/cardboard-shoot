@@ -1,6 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{78049ED6-E5DF-0F37-0750-8814E9BF3597}") = "cardboard-shoot", "Assembly-CSharp-firstpass.csproj", "{109B7EFD-F718-BC27-CD3C-4E5CE794C1E7}"
 EndProject
 Project("{78049ED6-E5DF-0F37-0750-8814E9BF3597}") = "cardboard-shoot", "Assembly-CSharp.csproj", "{FE278A35-7B71-EA7A-0A01-19D7B77D659D}"
@@ -25,9 +24,6 @@ Global
 		{A0CB4526-5D85-7807-1355-2CD7E90F997C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0CB4526-5D85-7807-1355-2CD7E90F997C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0CB4526-5D85-7807-1355-2CD7E90F997C}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
