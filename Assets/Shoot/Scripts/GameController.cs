@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using DG.Tweening;
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour {
 	public GameObject PlayerTurretHead;
 	public GameObject City;
 	public GameObject GameOverInfo;
+	public Text PausedLabel;
 
 	private float timeUntilSpawn;
 	private FloatRange TimeToSpawnEnemy;
@@ -70,7 +72,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GvrViewer.Instance.Recenter();
-
+		
+		PausedLabel.enabled = false;
 		Score = 0;
 		GameOverInfo.SetActive(false);
 
@@ -314,6 +317,8 @@ public class GameController : MonoBehaviour {
 
 	public void TogglePause() {
 		Time.timeScale = 1f - Time.timeScale;
+		if (PausedLabel != null)
+		 PausedLabel.enabled = Time.timeScale == 0;
 	}
 
 }
