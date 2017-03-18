@@ -22,14 +22,16 @@ public class VRPreferences : MonoBehaviour
 	{
 		GvrViewer.Instance.VRModeEnabled = VRMode;
 		GvrViewer.Instance.DistortionCorrection = DistortionCorrection;
-		GvrViewer.Controller.directRender = DirectRender;
+		if (GvrViewer.Controller != null)
+			GvrViewer.Controller.directRender = DirectRender;
 	}
 
 	public void SaveSettings()
 	{
 		VRMode = GvrViewer.Instance.VRModeEnabled;
 		DistortionCorrection = GvrViewer.Instance.DistortionCorrection;
-		DirectRender = GvrViewer.Controller.directRender;
+		if (GvrViewer.Controller != null)
+			DirectRender = GvrViewer.Controller.directRender;
 	}
 	
 	// Update is called once per frame
