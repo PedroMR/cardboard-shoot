@@ -124,6 +124,7 @@
      <Compile Include="Assets\Shoot\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Shoot\Scripts\TargetingHUD.cs" />
      <Compile Include="Assets\Shoot\Scripts\TimedObjectRepooling.cs" />
+     <Compile Include="Assets\Shoot\Scripts\UI\NumberStepper.cs" />
      <Compile Include="Assets\Shoot\Scripts\Util.cs" />
      <Compile Include="Assets\Shoot\Scripts\VRPreferences.cs" />
      <Compile Include="Assets\Shoot\Scripts\WeaponTargetable.cs" />
