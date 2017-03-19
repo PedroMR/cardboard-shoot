@@ -2214,6 +2214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiMenu: {fileID: 340394400}
+  startingWaveSelector: {fileID: 1616401958}
 --- !u!114 &1546008480
 MonoBehaviour:
   m_ObjectHideFlags: 0

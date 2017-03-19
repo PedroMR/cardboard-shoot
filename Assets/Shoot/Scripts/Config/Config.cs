@@ -6,6 +6,8 @@ public class Config : ScriptableObject {
 	public Groups EnemyGroups;
 	public Waves EnemyWaves;
 
+	public int startingWave = 0;
+
 	private static Config _instance;
 
 	public Config() {

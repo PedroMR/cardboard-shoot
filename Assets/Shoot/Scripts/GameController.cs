@@ -80,7 +80,11 @@ public class GameController : MonoBehaviour {
 		Score = 0;
 		GameOverInfo.SetActive(false);
 
-		SetWave(1);
+		if (Config.Instance.startingWave > 0) {
+			currentWaveId = Config.Instance.startingWave;
+		}
+
+		SetWave(currentWaveId);
 		gameState = GameState.PLAYING;
 
 		var targets = City.GetComponentsInChildren<CityTarget>();

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour {
 	public GameObject uiMenu;
+	public NumberStepper startingWaveSelector;
 
 	void Start() {
 		GvrViewer.Instance.Recenter();
@@ -28,6 +29,11 @@ public class StartMenu : MonoBehaviour {
 
 	public void StartGame() {
 		VRPreferences.Instance.SaveSettings();
+
+		if (startingWaveSelector != null) {
+			Config.Instance.startingWave = startingWaveSelector.value;
+		}
+
 		SceneManager.LoadScene("Game");
 
 	}
