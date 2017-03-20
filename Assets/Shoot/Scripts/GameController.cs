@@ -75,8 +75,15 @@ public class GameController : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		PausedLabel.enabled = false;
+		gameState = GameState.INTRO;
 
+		PausedLabel.enabled = false;
+		Score = 0;
+		GameOverInfo.SetActive(false);
+	}
+
+	public void BeginGame() {
+		PausedLabel.enabled = false;
 		Score = 0;
 		GameOverInfo.SetActive(false);
 
